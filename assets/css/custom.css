@@ -1,0 +1,30 @@
+.indexframe {
+      max-width: 1350px;
+}
+
+.titleheader {
+      font-weight: bold;
+      color: #528d61;
+}
+
+.editbox {
+      max-width: 550px;
+}
+
+.detail-box {
+      text-align: center;
+      padding: 20px 10px 0px 10px;
+      transition: all ease-in-out 0.3s;
+      background: rgb(255, 255, 255);
+      box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
+}
+
+.bi.bi-search {
+      color: white;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+color: #fff;
+background-color: #198754;
+}
