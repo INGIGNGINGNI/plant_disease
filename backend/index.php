@@ -229,7 +229,7 @@
                               <th scope="col">วิธีการรักษา</th>
                               <th scope="col">ข้อควรระวัง</th> -->
                               <th scope="col">ไม้ประดับที่พบ</th>
-                              <th scope="col">รูปภาพ</th>
+                              <!-- <th scope="col">รูปภาพ</th> -->
                               <th scope="col"></th>
                         </tr>
                   </thead>
@@ -251,9 +251,10 @@
                               <td><?php echo $plant['remedy']; ?></td>
                               <td><?php echo $plant['caution']; ?></td> -->
                               <td width="400px"><?php echo $plant['type']; ?></td>
-                              <td width="250px"><img class="rounded" width="30%"
-                                          src="../uploads/<?php echo $plant['img']; ?>" alt=""></td>
-                              <td width="200px">
+                              <!-- <td width="200px"><img class="rounded" width="30%"
+                                          src="../uploads/<?php echo $plant['img']; ?>" alt=""></td> -->
+                              <td width="250px">
+                                    <a href="image.php?id=<?php echo $plant['id']; ?>" class="btn btn-success">รูปภาพ</a>
                                     <a href="edit.php?id=<?php echo $plant['id']; ?>" class="btn btn-warning">แก้ไข</a>
                                     <a data-id="<?php echo $plant['id']; ?>" href="?delete=<?php echo $plant['id']; ?>"
                                           class="btn btn-danger delete-btn">ลบ</a>

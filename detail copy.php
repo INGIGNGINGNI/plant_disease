@@ -37,17 +37,17 @@
             font-size: 18px;
             color: #528d61;
       }
+
       p,
       li {
             font-size: 18px;
       }
+
       .text-green {
             color: #528d61;
       }
-      .img-box {
-            max-width: 1400px;
-      }
       </style>
+
 </head>
 
 <body>
@@ -81,14 +81,12 @@
             </div>
             <!-- ======= Section ======= -->
             <section id="about" class="about">
-                  <div class="container img-box" data-aos="fade-up">
+                  <div class="container" data-aos="fade-up">
                         <?php
                               require_once("backend/config.php");
                               if (isset($_GET['id'])) {
                                     $id = $_GET['id'];
-                                    $stmt = $conn -> query("SELECT plants.id, plants.name, plants.enname, plants.cause, plants.symptom, plants.remedy,
-                                          plants.caution, plants.type, images.imgname, images.plant_id  FROM plants 
-                                          JOIN images ON plants.id = images.plant_id WHERE plants.id = $id && plants.status ='1' ");
+                                    $stmt = $conn -> query("SELECT * FROM plants WHERE id='$id'");
                                     $stmt -> execute();
                                     $plants = $stmt -> fetchAll();
                                     foreach($plants as $plant) {
@@ -99,21 +97,10 @@
                         </div>
 
                         <div class="row">
-                              <div class="col-lg-6">
-                                    <div class="container">
-                                          <div class="mySlides">
-                                                 <img src="uploads/<?php echo $plant['imgname'];?>" style="width:100%">
-                                          </div>
-                                          <a class="next" onclick="plusSlides(1)">❯</a>
-                                          <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                          <div class="row">
-                                                <div class="column-tmp">
-                                                      <img class="demo cursor" src="uploads/<?php echo $plant['imgname'];?>" style="width:100%" onclick="currentSlide(1)">
-                                                </div>
-                                          </div>
-                                    </div>
+                              <div class="col-lg-4">
+                                    <img src="uploads/<?php echo $plant['img']; ?>" class="img-fluid">
                               </div>
-                              <div class="col-lg-6 pt-4 pt-lg-0 content">
+                              <div class="col-lg-8 pt-4 pt-lg-0 content">
                                     <h6>ลักษณะของโรค</h6>
                                     <p Align="justify"><?php echo $plant['symptom']; ?></p>
                                     <div class="row">
@@ -199,39 +186,7 @@
       <script src="assets/vendor/php-email-form/validate.js"></script>
 
       <script src="assets/js/main.js"></script>
-      <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
 
-            function plusSlides(n) {
-                  showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                  showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                  let i;
-                  let slides = document.getElementsByClassName("mySlides");
-                  let dots = document.getElementsByClassName("demo");
-                  let captionText = document.getElementById("caption");
-                  if (n > slides.length) {
-                        slideIndex = 1
-                  }
-                  if (n < 1) {
-                        slideIndex = slides.length
-                  }
-                  for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                  }
-                  for (i = 0; i < dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" active", "");
-                  }
-                  slides[slideIndex - 1].style.display = "block";
-                  dots[slideIndex - 1].className += " active";
-                  captionText.innerHTML = dots[slideIndex - 1].alt;
-            }
-      </script>
 </body>
+
 </html>

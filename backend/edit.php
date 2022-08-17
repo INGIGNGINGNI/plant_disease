@@ -102,7 +102,7 @@
                   ?>
 
                   <div class="mb-3">
-                        <input type="text" readonly value="<?php echo $data['id']; ?>" required class="form-control"
+                        <input type="text" hidden value="<?php echo $data['id']; ?>" required class="form-control"
                               name="id">
                         <label for="firstname" class="col-form-label">ชื่อของโรค (ไทย) :</label>
                         <input type="text" value="<?php echo $data['name']; ?>" required class="form-control"
