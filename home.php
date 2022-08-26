@@ -53,32 +53,33 @@
 </head>
 
 <body>
-      <header id="header" class="fixed-top">
-            <div class="container">
-                  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-                        <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
-                        <ul
-                              class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
-                              <li class="nav-item"><a href="home.php"
-                                          class="nav-link active px-2 link-secondary ">หน้าแรก</a></li>
-                              <li><a href="diagnosis.php" class="nav-link px-2 link-dark">วินิจฉัยโรค</a></li>
-                              <li><a href="noresult.php" class="nav-link px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
-                        </ul>
-                        <div class="col-md-3 text-end">
-                              <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                              <a href="loginform.php" class="btn btn-success">Admin Page</a>
-                        </div>
-                  </header>
-            </div>
-      </header>
-
       <main id="main">
+            <header id="header" class="fixed-top">
+                  <div class="container">
+                        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+                              <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
+                              <ul
+                                    class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
+                                    <li class="nav-item"><a href="home.php"
+                                                class="nav-link active px-2 link-secondary ">หน้าแรก</a></li>
+                                    <li><a href="diagnosis.php" class="nav-link px-2 link-dark">วินิจฉัยโรค</a></li>
+                                    <li><a href="noresult.php" class="nav-link px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
+                              </ul>
+                              <div class="col-md-4 text-end">
+                                    <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
+                                    <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                              </div>
+                        </header>
+                  </div>
+            </header>
             <div class="homeheader">
                   <div class="align">
-                        <div class="titleheader">
+                        <div class="titlehome">
+                              <h4>Web application for diagnosis of ornamental plant diseases </h4>
+                        </div>
+                        <div class="titlehome2">
                               <h4>เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ</h4>
                         </div>
-                        <h4>Web application for diagnosis of ornamental plant diseases </h4>
                   </div>
             </div>
             <section id="services" class="services">
@@ -86,7 +87,6 @@
                         <div class="section-title">
                               <h2>ความรู้ทั่วไปเกี่ยวกับโรคในไม้ประดับ</h2>
                         </div>
-
 
                         <div class="row gy4">
                               <div class="col-md-4"></div>
@@ -123,11 +123,11 @@
                               <script>
                               item.push("<?=$plants[$i]['name'];?>");
                               </script>
-                              <div class="col-lg-3 col-md-6 d-flex align-items-stretch md-0 py-3" id="itemSearch<?=$i?>"
+                              <div class="col-lg-3 col-md-6 col-sm-6 d-flex align-items-stretch md-0 py-3" id="itemSearch<?=$i?>"
                                     data-aos="zoom-in" data-aos-delay="100">
                                     <div class="detail-box" id="searchname">
                                           <div class="img">
-                                                <img class="rounded" width="90%"
+                                                <img class="rounded" width="100%"
                                                       src="uploads/<?php echo $plants[$i]['img']; ?>" alt="">
                                           </div>
                                           <div>

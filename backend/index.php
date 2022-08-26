@@ -3,7 +3,7 @@
 
 <?php 
       session_start();
-      require_once("../backend/config.php");
+      require_once("config.php");
 
       if (isset($_GET['delete'])) {
             $delete_id = $_GET['delete'];
@@ -152,6 +152,7 @@
                   </div>
             </div>
       </div>
+      
 
       <div class="container">
             <header
@@ -220,7 +221,8 @@
             <?php } ?>
 
             <!--show plant data-->
-            <table class="table table-striped table-hover  mt-4">
+            <table class="table table-hover  mt-4">
+            <!-- <table class="table table-striped table-hover  mt-4"> -->
                   <thead>
                         <tr>
                               <th scope="col">ชื่อโรค</th>
@@ -245,19 +247,19 @@
                               foreach($plants as $plant)  {  
                         ?>
                         <tr>
-                              <td width="250px"><?php echo $plant['name']; ?> (<?php echo $plant['enname']; ?>)</td>
-                              <td><?php echo $plant['cause']; ?></td>
+                              <td width="270px"><?php echo $plant['name']; ?> (<?php echo $plant['enname']; ?>)</td>
+                              <td width="270px"><?php echo $plant['cause']; ?></td>
                               <!-- <td><?php echo $plant['symptom']; ?></td>
                               <td><?php echo $plant['remedy']; ?></td>
                               <td><?php echo $plant['caution']; ?></td> -->
                               <td width="400px"><?php echo $plant['type']; ?></td>
                               <!-- <td width="200px"><img class="rounded" width="30%"
                                           src="../uploads/<?php echo $plant['img']; ?>" alt=""></td> -->
-                              <td width="250px">
-                                    <a href="image.php?id=<?php echo $plant['id']; ?>" class="btn btn-success">รูปภาพ</a>
-                                    <a href="edit.php?id=<?php echo $plant['id']; ?>" class="btn btn-warning">แก้ไข</a>
+                              <td width="180px">
+                                    <a href="image.php?id=<?php echo $plant['id']; ?>" class="btn btn-success btn-sm mx-1">รูปภาพ</a>
+                                    <a href="edit.php?id=<?php echo $plant['id']; ?>" class="btn btn-warning btn-sm mx-1">แก้ไข</a>
                                     <a data-id="<?php echo $plant['id']; ?>" href="?delete=<?php echo $plant['id']; ?>"
-                                          class="btn btn-danger delete-btn">ลบ</a>
+                                          class="btn btn-danger btn-sm mx-1 delete-btn">ลบ</a>
                               </td>
                         </tr>
                   </tbody>

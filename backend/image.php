@@ -141,7 +141,7 @@
                                                 </tbody>
                                                 </thead>
                                           </table>   
-                              <?php   } ?>
+                              <?php } ?>
                               <?php } ?>
                   </div>
             </div>
@@ -155,17 +155,6 @@
       </script>
       <script src="assets/js/main.js"></script>
 
-      <script>
-      let imgInput = document.getElementById('imgInput');
-      let previewImg = document.getElementById('previewImg');
-
-      imgInput.onchange = evt => {
-            const [file] = imgInput.files;
-            if (file) {
-                  previewImg.src = URL.createObjectURL(file);
-            }
-      }
-      </script>
 
 </body>
 

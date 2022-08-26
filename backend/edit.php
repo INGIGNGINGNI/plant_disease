@@ -85,8 +85,8 @@
       </div>
 
       <div class="container mt-4">
-            <div class="container text-center titleheader">
-                  <h4>แก้ไขข้อมูลโรคของต้นไม้</h4>
+            <div class="container text-center">
+                  <h4 class="titleheader">แก้ไขข้อมูลโรคของต้นไม้</h4>
             </div>
       </div>
 

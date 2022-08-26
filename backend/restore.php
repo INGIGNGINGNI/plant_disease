@@ -12,7 +12,6 @@
 
             if ($delete_stmt) {
                   $_SESSION['success'] = "ลบข้อมูลเรียบร้อยแล้ว";
-                  header("refresh:2; url=restore.php");
             }
       }
 
@@ -91,11 +90,9 @@
                   background-size: cover;
             }
       </style>
-      
 </head>
 
 <body>
-
       <div class="container">
             <header
                   class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -146,18 +143,18 @@
             <?php if (isset($_SESSION['success'])) { ?>
             <div class="alert alert-success">
                   <?php 
-                              echo $_SESSION['success']; 
-                              unset ($_SESSION['success']);
-                        ?>
+                                    echo $_SESSION['success']; 
+                                    unset ($_SESSION['success']);
+                              ?>
             </div>
             <?php } ?>
 
             <?php if (isset($_SESSION['error'])) { ?>
             <div class="alert alert-danger">
                   <?php 
-                              echo $_SESSION['error']; 
-                              unset ($_SESSION['error']);
-                        ?>
+                                    echo $_SESSION['error']; 
+                                    unset ($_SESSION['error']);
+                              ?>
             </div>
             <?php } ?>
 
@@ -197,10 +194,10 @@
                               <td width="250px"><img class="rounded" width="30%"
                                           src="../uploads/<?php echo $plant['img']; ?>" alt=""></td>
                               <td width="200px">
-                                    <button type="button" class="btn btn-warning me-6" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-warning btn-sm me-6" data-bs-toggle="modal"
                                           data-bs-target="#restoreModal" >คืนค่าข้อมูล</button>
                                           <a data-id="<?php echo $plant['id']; ?>" href="?delete=<?php echo $plant['id']; ?>"
-                                          class="btn btn-danger delete-btn">ลบ</a>
+                                          class="btn btn-danger btn-sm delete-btn">ลบ</a>
                               </td>
                         </tr>
                   </tbody>

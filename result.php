@@ -31,120 +31,125 @@
       <!-- Template Main CSS File -->
       <link href="assets/css/style.css" rel="stylesheet">
       <link rel="stylesheet" href="assets/css/custom.css">
-      
+
+      <style>
+            .text-result {
+                  font-size: 18px;
+                  font-weight: bold;
+                  color: #528d61;
+            }
+            .result {
+                  max-width: 1000px;
+            }
+      </style>
+
 </head>
 
 <body>
-      <header id="header" class="fixed-top">
-            <div class="container">
-                  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-                        <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
-                        <ul
-                              class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
-                              <li><a href="home.php" class="nav-link  px-2 link-secondary ">หน้าแรก</a></li>
-                              <li><a href="diagnosis.php" class="nav-link px-2 link-dark">วินิจฉัยโรค</a></li>
-                              <li class="nav-item"><a href="noresult.php"
-                                          class="nav-link active px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
-                        </ul>
-                        <div class="col-md-3 text-end">
-                              <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                              <a href="loginform.php" class="btn btn-success">Admin Page</a>
-                        </div>
-                  </header>
-            </div>
-      </header>
-
       <main id="main">
+            <header id="header" class="fixed-top">
+                  <div class="container">
+                        <header
+                              class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+                              <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
+                              <ul
+                                    class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
+                                    <li><a href="home.php" class="nav-link  px-2 link-secondary ">หน้าแรก</a></li>
+                                    <li><a href="diagnosis.php" class="nav-link px-2 link-dark">วินิจฉัยโรค</a></li>
+                                    <li class="nav-item"><a href="noresult.php"
+                                                class="nav-link active px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
+                              </ul>
+                              <div class="col-md-4 text-end">
+                                    <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
+                                    <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                              </div>
+                        </header>
+                  </div>
+            </header>
             <div class="homeheader">
                   <div class="align">
-                        <div class="titleheader">
+                        <div class="titlehome">
+                              <h4>Web application for diagnosis of ornamental plant diseases </h4>
+                        </div>
+                        <div class="titlehome2">
                               <h4>เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ</h4>
                         </div>
-                        <h4>Web application for diagnosis of ornamental plant diseases </h4>
                   </div>
             </div>
             <section id="services" class="services">
-                  <div class="container" data-aos="fade-up">
+                  <div class="container result" data-aos="fade-up">
                         <div class="section-title">
                               <h2>ผลการวินิจฉัยโรคในไม้ประดับ</h2>
-                              <h5>จากการวินิจฉัยโรคเบื้องต้นของระบบจากอาการข้างต้น
+                              <h5 class="pb-4">จากการวินิจฉัยโรคเบื้องต้นของระบบจากอาการข้างต้น
                                     พบว่าโรคที่เกิดขึ้นกับไม้ประดับของคุณคือ</h5>
-                              <div class="container">
-                                    <main>
-                                          <br>
-                                          <div class="row g-5">
-                                                <!-- right box -->
-                                                <div class="col-md-5 col-lg-4 order-md-last">
-                                                      <br>
-                                                      <h5
-                                                            class="d-flex justify-content-between align-items-center mb-3">
-                                                            <span class="text-primary">ดูข้อมูลของโรคต่างๆ</span>
-                                                      </h5>
-                                                      <?php
-                                                                  require_once "backend/config.php";
-                                                                  $stmt = $conn->query("SELECT * FROM plants WHERE status='1' ");
-                                                                  $stmt->execute();
-                                                                  $plants = $stmt->fetchAll();
-                                                                  foreach($plants as $plant)  {
-                                                            ?>
-                                                      <ul class="list-group">
-                                                            <li
-                                                                  class="list-group-item d-flex justify-content-between lh-lg">
-                                                                  <h6 class="text-start">
-                                                                        <?php echo $plant['name']; ?> </h6>
-                                                                  <a href="detail.php?id=<?php echo $plant['id']; ?>"
-                                                                        class="btn btn-outline-success">ดูเพิ่มเติม</a>
-                                                            </li>
-                                                      </ul>
-                                                      <?php } ?>
-                                                </div>
-                                                <!-- end right box -->
+                              <hr>
+                        </div>
+                        <div class="container">
+                              <form>
+                                    <?php
+                                          require_once "backend/config.php";
 
-                                                <!-- left box -->
-                                                <div class="col-md-7 col-lg-8">
-                                                      <br>
-                                                      <form>
+                                          if (isset($_POST['result'])) {
+                                                $wound_area = $_POST['wound_area'];
+                                                $contamination = $_POST['contamination'];
+                                                $look = $_POST['look'];
+                                                $wound_nature = $_POST['wound_nature'];
+                                                $wound_shape = $_POST['wound_shape'];
+                                                $wound_color = $_POST['wound_color'];
+
+                                                if ($wound_area == 'on_leaf' && $contamination == 'white_fungus' && $look == 'leaf_dried' && 
+                                                $wound_nature == 'widely' && $wound_shape == 'spot' && $wound_color == 'caramel') {
+                                                      $sql = $conn -> query("SELECT * FROM plants WHERE id = '6' ");
+                                                      $sql -> execute();
+                                                      $datas =  $sql -> fetchAll(PDO::FETCH_ASSOC);
+                                                      foreach ($datas as $data) { ?>
                                                             <div class="row g-3">
-                                                                  <div class="col-12">
-                                                                        <div class="input-group has-validation">
-                                                                              <span class="input-group-text">โรค</span>
-                                                                              <input type="text" class="form-control">
-                                                                        </div>
+                                                                  <div class="col-md-6">
+                                                                        <label for="name" class="form-label text-result">ชื่อโรค</label>
+                                                                        <input type="text" class="form-control" name="name" readonly value="<?php echo $data['name']; ?> (<?php echo $data['enname']; ?>)" >
+                                                                  </div>
+
+                                                                  <div class="col-md-6">
+                                                                        <label for="cause" class="form-label text-result">สาเหตุของโรค</label>
+                                                                        <input type="text" class="form-control" name="cause" readonly value="<?php echo $data['cause']; ?>">
                                                                   </div>
 
                                                                   <div class="col-12">
-                                                                        <div class="input-group has-validation">
-                                                                              <span class="input-group-text">สาเหตุ</span>
-                                                                              <textarea class="form-control"></textarea>
-                                                                        </div>
+                                                                        <label for="symptom" class="form-label text-result">อาการของโรค</label>
+                                                                        <textarea type="text" class="form-control" name="symptom" readonly required><?php echo $data['symptom']; ?></textarea>
                                                                   </div>
 
                                                                   <div class="col-12">
-                                                                        <div class="input-group has-validation">
-                                                                              <span class="input-group-text">อาการ</span>
-                                                                              <textarea class="form-control"></textarea>
-                                                                        </div>
+                                                                        <label for="remedy" class="form-label text-result">วิธีการรักษา</label>
+                                                                        <textarea type="text" class="form-control" name="remedy" readonly required ><?php echo $data['remedy']; ?></textarea>
                                                                   </div>
 
                                                                   <div class="col-12">
-                                                                        <div class="input-group has-validation">
-                                                                              <span class="input-group-text">วิธีการรักษา</span>
-                                                                              <textarea class="form-control"></textarea>
-                                                                        </div>
+                                                                        <label for="caution" class="form-label text-result">ข้อควรระวัง <span class="text-muted">(เกี่ยวกับโรคหรือการแพร่ระบาด)</span></label>
+                                                                        <textarea type="text" class="form-control" name="caution" readonly required ><?php echo $data['caution']; ?></textarea>
                                                                   </div>
-                                                                  <hr class="my-4">
                                                             </div>
-                                                      </form>
-                                                      <div class="row">
-                                                            <div class="col-md-4">
-                                                                  <a class="btn btn-primary btn-lg" href="home.php">ตกลง</a>
-                                                                  <a class="btn btn-secondary btn-lg " href="diagnosis.php">วินิจฉัยอีกครั้ง</a>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </main>
-                              </div>
+                                                      <?php }
+                                                } else { ?>
+                                                      <table class="table table-success">
+                                                            <thead>
+                                                            <tbody>
+                                                                  <tr>
+                                                                        <td colspan='6' class='text-center'>ไม่สามารถแสดงผลการวินิจฉัยได้</td>
+                                                                  </tr>
+                                                            </tbody>
+                                                            </thead>
+                                                      </table>
+                                                 <?php }
+                                          } ?>
+                                          
+                                    <hr class="my-4">
+                                    <a href="home.php" class="btn btn-primary mx-2">ตกลง</ฟ>
+                                    <a href="diagnosis.php" class="btn btn-secondary">วินิจฉัยอีกครั้ง</a>
+                              </form>
+                        </div>
+                  </div>
+            </section>
       </main>
 
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -206,13 +211,17 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
       </script>
 
-      <script>
-      $('textarea').each(function() {
-            this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden');
-      }).on('input', function() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-      });
+      <script type="text/javascript">
+            $(document).ready(function() {
+                  $('textarea').each(function() {
+                        this.setAttribute('style', 'height:' + (this.scrollHeight) +
+                              'px;overflow-y:hidden');
+                  }).on('input', function() {
+                        this.style.height = 'auto';
+                        this.style.height = (this.scrollHeight) + 'px';
+                        console.log(this.scrollHeight);
+                  });
+            });
       </script>
 
 </body>

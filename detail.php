@@ -37,15 +37,18 @@
             font-size: 18px;
             color: #528d61;
       }
+
       p,
       li {
             font-size: 18px;
       }
+
       .text-green {
             color: #528d61;
       }
+
       .img-box {
-            max-width: 1400px;
+            max-width: 1300px;
       }
       </style>
 </head>
@@ -71,78 +74,119 @@
       </header>
 
       <main id="main">
+            <header id="header" class="fixed-top">
+                  <div class="container">
+                        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+                              <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
+                              <ul
+                                    class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
+                                    <li class="nav-item"><a href="home.php"
+                                                class="nav-link active px-2 link-secondary ">หน้าแรก</a></li>
+                                    <li><a href="diagnosis.php" class="nav-link px-2 link-dark">วินิจฉัยโรค</a></li>
+                                    <li><a href="noresult.php" class="nav-link px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
+                              </ul>
+                              <div class="col-md-4 text-end">
+                                    <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
+                                    <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                              </div>
+                        </header>
+                  </div>
+            </header>
+            
             <div class="homeheader">
                   <div class="align">
-                        <div class="titleheader">
+                        <div class="titlehome">
+                              <h4>Web application for diagnosis of ornamental plant diseases </h4>
+                        </div>
+                        <div class="titlehome2">
                               <h4>เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ</h4>
                         </div>
-                        <h4>Web application for diagnosis of ornamental plant diseases </h4>
                   </div>
             </div>
-            <!-- ======= Section ======= -->
+
             <section id="about" class="about">
                   <div class="container img-box" data-aos="fade-up">
-                        <?php
-                              require_once("backend/config.php");
-                              if (isset($_GET['id'])) {
-                                    $id = $_GET['id'];
-                                    $stmt = $conn -> query("SELECT plants.id, plants.name, plants.enname, plants.cause, plants.symptom, plants.remedy,
-                                          plants.caution, plants.type, images.imgname, images.plant_id  FROM plants 
-                                          JOIN images ON plants.id = images.plant_id WHERE plants.id = $id && plants.status ='1' ");
-                                    $stmt -> execute();
-                                    $plants = $stmt -> fetchAll();
-                                    foreach($plants as $plant) {
+                        <div class="container">
+                              <?php 
+                                    include_once("backend/config_sqli.php");
+                                    if (isset($_GET['id'])) {
+                                          $id = $_GET['id'];
+                                          $query = $conn -> query("SELECT  * FROM plants WHERE id = $id && status='1' ");
+                                          $plant = $query -> fetch_assoc();
                                     }
-                        ?>
-                        <div class="section-title">
-                              <h2><?php echo $plant['name']; ?> (<?php echo $plant['enname']; ?>)</h2>
-                        </div>
-
-                        <div class="row">
-                              <div class="col-lg-6">
-                                    <div class="container">
-                                          <div class="mySlides">
-                                                 <img src="uploads/<?php echo $plant['imgname'];?>" style="width:100%">
+                              ?>
+                              <div class="section-title">
+                                    <h2><?php echo $plant['name']; ?> (<?php echo $plant['enname']; ?>)</h2>
+                              </div>
+                              <div class="row">
+                                    <div class="col-lg-6">
+                                          <div class="container img-box">
+                                                <?php
+                                                require_once("backend/config_sqli.php");
+                                                if (isset($_GET['id'])) {
+                                                      $id = $_GET['id'];
+                                                      $query = $conn -> query("SELECT * FROM images WHERE plant_id = '$id' && status='1' ");
+                                                      if ($query -> num_rows > 0) {
+                                                            while ($row = $query -> fetch_assoc()) {
+                                                                        $imageURL = 'uploads/' .$row['imgname']; 
+                                                                        ?>
+                                                <div class="mySlides">
+                                                      <img src="<?php echo $imageURL?>" width="100%">
+                                                </div>
+                                                <?php } ?>
+                                                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                                <a class="next" onclick="plusSlides(1)">❯</a>
+                                                <div class="row">
+                                                      <?php 
+                                                            require_once("backend/config_sqli.php");
+                                                                  $id = $_GET['id'];
+                                                                  $query = $conn -> query("SELECT * FROM images WHERE plant_id = '$id' && status='1' ");
+                                                                  if ($query -> num_rows > 0) {
+                                                                        while ($row = $query -> fetch_assoc()) {
+                                                                              $imageURL = 'uploads/' .$row['imgname']; 
+                                                                              ?>
+                                                      <div class="column-tmp">
+                                                            <img class="demo cursor" src="<?php echo $imageURL?>"
+                                                                  width="100%" onclick="currentSlide(1)">
+                                                      </div>
+                                                      <?php } ?>
+                                                      <?php } ?>
+                                                </div>
+                                                <?php } 
+                                               } ?>
                                           </div>
-                                          <a class="next" onclick="plusSlides(1)">❯</a>
-                                          <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                    </div>
+                                    <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                          <h6>ลักษณะของโรค</h6>
+                                          <p Align="justify"><?php echo $plant['symptom']; ?></p>
                                           <div class="row">
-                                                <div class="column-tmp">
-                                                      <img class="demo cursor" src="uploads/<?php echo $plant['imgname'];?>" style="width:100%" onclick="currentSlide(1)">
+                                                <div class="col-lg-6">
+                                                      <ul>
+                                                            <li><i class="bi bi-rounded-right"></i> <strong
+                                                                        class="text-green">สาเหตุ :</strong>
+                                                                  <?php echo $plant['cause']; ?></li>
+                                                            <li><i class="bi bi-rounded-right"></i> <strong
+                                                                        class="text-green">วิธีการรักษา
+                                                                        :</strong> <?php echo $plant['remedy']; ?></li>
+                                                      </ul>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                      <ul>
+                                                            <li><i class="bi bi-rounded-right"></i>
+                                                                  <strong class="text-green">ไม้ประดับที่พบโรคนี้
+                                                                        :</strong>
+                                                                  <?php echo $plant['type']; ?>
+                                                            </li>
+                                                      </ul>
                                                 </div>
                                           </div>
+                                          <h6>วิธีการรักษา</h6>
+                                          <p Align="justify"><?php echo $plant['caution']; ?></p>
                                     </div>
-                              </div>
-                              <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                    <h6>ลักษณะของโรค</h6>
-                                    <p Align="justify"><?php echo $plant['symptom']; ?></p>
-                                    <div class="row">
-                                          <div class="col-lg-6">
-                                                <ul>
-                                                      <li><i class="bi bi-rounded-right"></i> <strong
-                                                                  class="text-green">สาเหตุ :</strong>
-                                                            <?php echo $plant['cause']; ?></li>
-                                                      <li><i class="bi bi-rounded-right"></i> <strong
-                                                                  class="text-green">วิธีการรักษา
-                                                                  :</strong> <?php echo $plant['remedy']; ?></li>
-                                                </ul>
-                                          </div>
-                                          <div class="col-lg-6">
-                                                <ul>
-                                                      <li><i class="bi bi-rounded-right"></i>
-                                                            <strong class="text-green">ไม้ประดับที่พบโรคนี้ :</strong>
-                                                            <?php echo $plant['type']; ?>
-                                                      </li>
-                                                </ul>
-                                          </div>
-                                    </div>
-                                    <h6>ข้อควรระวัง</h6>
-                                    <p Align="justify"><?php echo $plant['caution']; ?></p>
                               </div>
                         </div>
-                        <?php } ?>
                   </div>
-            </section><!-- End  Section -->
+            </section>
       </main>
 
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -234,4 +278,5 @@
             }
       </script>
 </body>
+
 </html>

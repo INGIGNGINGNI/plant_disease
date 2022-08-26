@@ -32,32 +32,35 @@
 </head>
 
 <body>
-      <header id="header" class="fixed-top">
-            <div class="container">
-                  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-                        <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
-                        <ul
-                              class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
-                              <li class="nav-item"><a href="home.php" class="nav-link px-2 link-secondary ">หน้าแรก</a>
-                              </li>
-                              <li><a href="diagnosis.php" class="nav-link active px-2 link-dark">วินิจฉัยโรค</a></li>
-                              <li><a href="noresult.php" class="nav-link px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
-                        </ul>
-                        <div class="col-md-3 text-end">
-                              <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                              <a href="loginform.php" class="btn btn-success">Admin Page</a>
-                        </div>
-                  </header>
-            </div>
-      </header>
-
+      
       <main id="main">
+            <header id="header" class="fixed-top">
+                  <div class="container">
+                        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+                              <img src="assets/img/web-logo.png" class="bi me-2" width="350px">
+                              <ul
+                                    class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0 navbar order-last order-lg-0">
+                                    <li class="nav-item"><a href="home.php" class="nav-link px-2 link-secondary ">หน้าแรก</a>
+                                    </li>
+                                    <li><a href="diagnosis.php" class="nav-link active px-2 link-dark">วินิจฉัยโรค</a></li>
+                                    <li><a href="noresult.php" class="nav-link px-2 link-dark">ผลการวินิจฉัยโรค</a></li>
+                              </ul>
+                              <div class="col-md-4 text-end">
+                                    <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
+                                    <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                              </div>
+                        </header>
+                  </div>
+            </header>
+            
             <div class="homeheader">
                   <div class="align">
-                        <div class="titleheader">
+                        <div class="titlehome">
+                              <h4>Web application for diagnosis of ornamental plant diseases </h4>
+                        </div>
+                        <div class="titlehome2">
                               <h4>เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ</h4>
                         </div>
-                        <h4>Web application for diagnosis of ornamental plant diseases </h4>
                   </div>
             </div>
 
@@ -68,26 +71,8 @@
                               <h5>โปรดเลือกลักษณะอาการที่เกิดขึ้นกับไม้ประดับของคุณเพื่อทำการวินิจฉัยโรค</h5>
                         </div>
                         <hr>
-                              <!-- <form action="">
-                                    <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="wound_area" value="on_leaf">
-                                          <label class="form-check-label" for="wound_area">บนใบ</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="wound_area" value="under_leaf">
-                                          <label class="form-check-label" for="wound_area">ใต้ใบ</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="wound_area" value="trunk">
-                                          <label class="form-check-label" for="wound_area">ลำต้น</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="radio" name="wound_area" value="stub">
-                                          <label class="form-check-label" for="wound_area">โคนต้น</label>
-                                    </div>
-                              </form> -->
                         <div class="container my-4">
-                              <form action="showresult.php" method="post">
+                              <form action="result.php" method="post">
                               <!-- row 1 -->
                               <div class="row">
                                     <div class="col">
@@ -112,204 +97,204 @@
                                                 </div>
                                     </div>
                                     <div class="col">
-                                          <h4>รูปร่างของแผลที่เกิดขึ้น</h4>
-                                                <div class="container modal-body">
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_shape" id="spot" value="spot" autocomplete="off" />
-                                                            <label class="btn btn-outline-success"  for="spot">รูปร่างเป็นจุด</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_shape" id="large" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="large">รูปร่างใหญ่</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_shape" id="circle" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="circle">รูปร่างเป็นวงกลม</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_shape" id="conglobe" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="conglobe">รูปร่างเป็นก้อนกลม</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_shape" id="scratch" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="scratch">รูปร่างเป็นรอยยาว</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_shape" id="normally" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="normally">รูปร่างปกติ</label>
-                                                      </div>
+                                          <h4>สิ่งปะปนที่อยู่บนแผลหรือบริเวณแผล</h4>
+                                          <div class="container modal-body">
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="white_fungus" value="white_fungus" autocomplete="off" />
+                                                      <label class="btn btn-outline-success"  for="white_fungus">ราสีขาว</label>
                                                 </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="black_fungus" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="black_fungus">ราสีดำ</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="white_fiber" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="white_fiber">เส้นใยสีขาว</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="red_brown_powder" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="red_brown_powder">ผงสีน้ำตาลแดง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="dark_brown_powder" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="dark_brown_powder">ผงสีน้ำตาลดำ</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="spore" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="spore">สปอร์</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="yellow_spore" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="yellow_spore">สปอร์สีเหลือง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="contamination" id="no" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="no">ไม่มี</label>
+                                                </div>
+                                          </div>
+                                          
                                     </div>
                                     <div class="col">
-                                          <h4>ลักษณะของแผลที่เกิดขึ้น</h4>
-                                                <div class="container modal-body">
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="widely" value="widely" autocomplete="off" />
-                                                            <label class="btn btn-outline-success"  for="widely">แผลกว้าง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="dried" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="dried">แผลแห้ง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="swell" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="swell">แผลพองนูน</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="pimple" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="pimple">แผลเป็นตุ่มเล็กๆ</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="split" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="split">แผลปริแตก</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="sink_in" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="sink_in">แผลบุ๋มลึก</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="rotten" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="rotten">แผลเน่า</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="burnt" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="burnt">แผลไหม้</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_nature" id="small" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="small">แผลเล็ก</label>
-                                                      </div>
+                                    <h4>ลักษณะโดยรวมของต้น</h4>
+                                          <div class="container modal-body">
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="leaf_dried" value="leaf_dried"autocomplete="off" />
+                                                      <label class="btn btn-outline-success"  for="leaf_dried">ใบเริ่มแห้ง</label>
                                                 </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="leaf_wither" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="leaf_wither">ใบแห้งและเหี่ยวเฉา</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="leaf_rotten" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="leaf_rotten">ใบเน่า</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="leaf_roll" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="leaf_roll">ใบม้วนงอ</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="leaf_fall" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="leaf_fall">ใบร่วงหล่น</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="stem_dying" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="stem_dying">ต้นเริ่มตาย</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="stem_slow growing" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="stem_slow growing">ต้นเจริญเติบโตช้า</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="look" id="stem_stunted" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="stem_stunted">ต้นแคระแกร็น</label>
+                                                </div>
+                                          </div>
                                     </div>
                               </div>
 
                               <!-- row 2 -->
                               <div class="row my-4">
                                     <div class="col">
+                                          <h4>ลักษณะของแผลที่เกิดขึ้น</h4>
+                                          <div class="container modal-body">
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="widely" value="widely" autocomplete="off" />
+                                                      <label class="btn btn-outline-success"  for="widely">แผลกว้าง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="dried" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="dried">แผลแห้ง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="swell" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="swell">แผลพองนูน</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="pimple" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="pimple">แผลเป็นตุ่มเล็กๆ</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="split" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="split">แผลปริแตก</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="sink_in" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="sink_in">แผลบุ๋มลึก</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="rotten" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="rotten">แผลเน่า</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="burnt" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="burnt">แผลไหม้</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_nature" id="small" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="small">แผลเล็ก</label>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="col">
+                                          <h4>รูปร่างของแผลที่เกิดขึ้น</h4>
+                                          <div class="container modal-body">
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_shape" id="spot" value="spot" autocomplete="off" />
+                                                      <label class="btn btn-outline-success"  for="spot">รูปร่างเป็นจุด</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_shape" id="large" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="large">รูปร่างใหญ่</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_shape" id="circle" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="circle">รูปร่างเป็นวงกลม</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_shape" id="conglobe" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="conglobe">รูปร่างเป็นก้อนกลม</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_shape" id="scratch" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="scratch">รูปร่างเป็นรอยยาว</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_shape" id="normally" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="normally">รูปร่างปกติ</label>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="col">
                                           <h4>สีของแผลที่เกิดขึ้น</h4>
-                                                <div class="container modal-body">
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="caramel" value="caramel" autocomplete="off" />
-                                                            <label class="btn btn-outline-success"  for="caramel">สีเหลืองอมน้ำตาล</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="red_brown" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="red_brown">สีน้ำตาลแดง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="black_brown" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="black_brown">สีน้ำตาลดำ</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="brown" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="brown">สีน้ำตาล</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="black" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="black">สีดำ</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="yellow" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="yellow">สีเหลือง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="purple" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="purple">สีม่วง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="green" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="green">สีเขียว</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="red" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="small">สีแดง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="wound_color" id="white" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="white">สีขาว</label>
-                                                      </div>
+                                          <div class="container modal-body">
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="caramel" value="caramel" autocomplete="off" />
+                                                      <label class="btn btn-outline-success"  for="caramel">สีเหลืองอมน้ำตาล</label>
                                                 </div>
-                                    </div>
-                                    <div class="col">
-                                          <h4>สิ่งปะปนที่อยู่บนแผลหรือบริเวณแผล</h4>
-                                                <div class="container modal-body">
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="white_fungus" value="white_fungus" autocomplete="off" />
-                                                            <label class="btn btn-outline-success"  for="white_fungus">ราสีขาว</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="black_fungus" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="black_fungus">ราสีดำ</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="white_fiber" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="white_fiber">เส้นใยสีขาว</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="red_brown_powder" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="red_brown_powder">ผงสีน้ำตาลแดง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="dark_brown_powder" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="dark_brown_powder">ผงสีน้ำตาลดำ</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="spore" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="spore">สปอร์</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="yellow_spore" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="yellow_spore">สปอร์สีเหลือง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="contamination" id="no" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="no">ไม่มี</label>
-                                                      </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="red_brown" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="red_brown">สีน้ำตาลแดง</label>
                                                 </div>
-                                    </div>
-                                    <div class="col">
-                                          <h4>ลักษณะโดยรวมของต้น</h4>
-                                                <div class="container modal-body">
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="leaf_dried" value="leaf_dried"autocomplete="off" />
-                                                            <label class="btn btn-outline-success"  for="leaf_dried">ใบเริ่มแห้ง</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="leaf_wither" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="leaf_wither">ใบแห้งและเหี่ยวเฉา</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="leaf_rotten" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="leaf_rotten">ใบเน่า</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="leaf_roll" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="leaf_roll">ใบม้วนงอ</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="leaf_fall" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="leaf_fall">ใบร่วงหล่น</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="stem_dying" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="stem_dying">ต้นเริ่มตาย</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="stem_slow growing" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="stem_slow growing">ต้นเจริญเติบโตช้า</label>
-                                                      </div>
-                                                      <div class="btn-group my-2 mx-2">
-                                                            <input type="radio" class="btn-check" name="look" id="stem_stunted" autocomplete="off" />
-                                                            <label class="btn btn-outline-success" for="stem_stunted">ต้นแคระแกร็น</label>
-                                                      </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="black_brown" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="black_brown">สีน้ำตาลดำ</label>
                                                 </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="brown" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="brown">สีน้ำตาล</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="black" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="black">สีดำ</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="yellow" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="yellow">สีเหลือง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="purple" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="purple">สีม่วง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="green" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="green">สีเขียว</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="red" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="small">สีแดง</label>
+                                                </div>
+                                                <div class="btn-group my-2 mx-2">
+                                                      <input type="radio" class="btn-check" name="wound_color" id="white" autocomplete="off" />
+                                                      <label class="btn btn-outline-success" for="white">สีขาว</label>
+                                                </div>
+                                          </div>
                                     </div>
                               </div>
                               <hr>
                               <div class="container my-4">
                                     <button type="submit" class="btn btn-primary" name="result">แสดงผลการวินิจฉัย</button>
                                     <a id="clearRadio" class="btn btn-secondary">ล้างค่า</a>
-
                               </div>
                         </form>
                         </div>
