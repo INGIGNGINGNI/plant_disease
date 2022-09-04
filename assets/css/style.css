@@ -24,10 +24,14 @@ a:hover {
 
 .homeheader {
   text-align: right; 
-  padding: 75px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  padding-left: 40px;
+  max-width: 100%;
   width: 100%;
-  background: url("../img/home-bg2.png");
-  background-size: 100% 100%;
+  object-fit: cover;
+  background: url("../img/home-bg3.png");
+  background-size: cover;
 }
 
 .titleheader {
@@ -49,6 +53,7 @@ a:hover {
 }
 
 .align {
+  padding-right: 70px;
   float: inline-start;
   padding-block: inherit;
 }

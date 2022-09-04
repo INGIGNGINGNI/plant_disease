@@ -28,13 +28,13 @@
                 // $_SESSION['success'] = "เข้าสู่ระบบแล้ว";
                 echo "<script>
                         $(document).ready(function () {
-                        Swal.fire ({
-                              icon: 'success',
-                              title: 'เข้าสู่ระบบแล้ว',
-                              text: 'ยินดีต้อนรับ Admin !!',
-                              timer: 2000,
-                              showConfirmButton: true
-                        });
+                            Swal.fire ({
+                                icon: 'success',
+                                title: 'เข้าสู่ระบบแล้ว',
+                                text: 'ยินดีต้อนรับ Admin !!',
+                                timer: 2000,
+                                showConfirmButton: true
+                            });
                         });
                   </script>";
                   header("refresh:2; url=backend/index.php");

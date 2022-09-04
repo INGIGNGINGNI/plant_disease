@@ -41,6 +41,28 @@
             .result {
                   max-width: 1000px;
             }
+            .section-title2 {
+                  text-align: center;
+                  padding-bottom: 10px;
+            }
+            .section-title2 h2 {
+                  font-size: 32px;
+                  font-weight: bold;
+                  text-transform: uppercase;
+                  margin-bottom: 20px;
+                  padding-bottom: 20px;
+                  position: relative;
+            }
+            .section-title2 h2::after {
+                  content: "";
+                  position: absolute;
+                  display: block;
+                  width: 50px;
+                  height: 3px;
+                  background: #528d61;
+                  bottom: 0;
+                  left: calc(50% - 25px);
+            }
       </style>
 
 </head>
@@ -78,74 +100,21 @@
             </div>
             <section id="services" class="services">
                   <div class="container result" data-aos="fade-up">
-                        <div class="section-title">
+                        <div class="section-title2">
                               <h2>ผลการวินิจฉัยโรคในไม้ประดับ</h2>
                               <h5 class="pb-4">จากการวินิจฉัยโรคเบื้องต้นของระบบจากอาการข้างต้น
                                     พบว่าโรคที่เกิดขึ้นกับไม้ประดับของคุณคือ</h5>
                               <hr>
                         </div>
-                        <div class="container">
+                        <div class="container result">
                               <form>
                                     <?php
-                                          require_once "backend/config.php";
-
-                                          if (isset($_POST['result'])) {
-                                                $wound_area = $_POST['wound_area'];
-                                                $contamination = $_POST['contamination'];
-                                                $look = $_POST['look'];
-                                                $wound_nature = $_POST['wound_nature'];
-                                                $wound_shape = $_POST['wound_shape'];
-                                                $wound_color = $_POST['wound_color'];
-
-                                                if ($wound_area == 'on_leaf' && $contamination == 'white_fungus' && $look == 'leaf_dried' && 
-                                                $wound_nature == 'widely' && $wound_shape == 'spot' && $wound_color == 'caramel') {
-                                                      $sql = $conn -> query("SELECT * FROM plants WHERE id = '6' ");
-                                                      $sql -> execute();
-                                                      $datas =  $sql -> fetchAll(PDO::FETCH_ASSOC);
-                                                      foreach ($datas as $data) { ?>
-                                                            <div class="row g-3">
-                                                                  <div class="col-md-6">
-                                                                        <label for="name" class="form-label text-result">ชื่อโรค</label>
-                                                                        <input type="text" class="form-control" name="name" readonly value="<?php echo $data['name']; ?> (<?php echo $data['enname']; ?>)" >
-                                                                  </div>
-
-                                                                  <div class="col-md-6">
-                                                                        <label for="cause" class="form-label text-result">สาเหตุของโรค</label>
-                                                                        <input type="text" class="form-control" name="cause" readonly value="<?php echo $data['cause']; ?>">
-                                                                  </div>
-
-                                                                  <div class="col-12">
-                                                                        <label for="symptom" class="form-label text-result">อาการของโรค</label>
-                                                                        <textarea type="text" class="form-control" name="symptom" readonly required><?php echo $data['symptom']; ?></textarea>
-                                                                  </div>
-
-                                                                  <div class="col-12">
-                                                                        <label for="remedy" class="form-label text-result">วิธีการรักษา</label>
-                                                                        <textarea type="text" class="form-control" name="remedy" readonly required ><?php echo $data['remedy']; ?></textarea>
-                                                                  </div>
-
-                                                                  <div class="col-12">
-                                                                        <label for="caution" class="form-label text-result">ข้อควรระวัง <span class="text-muted">(เกี่ยวกับโรคหรือการแพร่ระบาด)</span></label>
-                                                                        <textarea type="text" class="form-control" name="caution" readonly required ><?php echo $data['caution']; ?></textarea>
-                                                                  </div>
-                                                            </div>
-                                                      <?php }
-                                                } else { ?>
-                                                      <table class="table table-success">
-                                                            <thead>
-                                                            <tbody>
-                                                                  <tr>
-                                                                        <td colspan='6' class='text-center'>ไม่สามารถแสดงผลการวินิจฉัยได้</td>
-                                                                  </tr>
-                                                            </tbody>
-                                                            </thead>
-                                                      </table>
-                                                 <?php }
-                                          } ?>
-                                          
-                                    <hr class="my-4">
-                                    <a href="home.php" class="btn btn-primary mx-2">ตกลง</ฟ>
-                                    <a href="diagnosis.php" class="btn btn-secondary">วินิจฉัยอีกครั้ง</a>
+                                          require_once "processresult.php";
+                                    ?>
+                                    <div class="py-6">
+                                          <hr>
+                                          <a href="diagnosis.php" class="btn btn-secondary">วินิจฉัยอีกครั้ง</a>
+                                    </div>
                               </form>
                         </div>
                   </div>

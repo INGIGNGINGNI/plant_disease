@@ -46,7 +46,7 @@
 
       <style>
             .input-group-text {
-            background-color: #88ad77;
+            background-color: #528d61;
       }
       </style>
       
@@ -89,9 +89,9 @@
                         </div>
 
                         <div class="row gy4">
-                              <div class="col-md-4"></div>
-                              <div class="col-md-4"></div>
-                              <div class="col-md-4">
+                              <div class="col-md-4 mb-3"></div>
+                              <div class="col-md-4 mb-3"></div>
+                              <div class="col-md-4 mb-3">
                                     <div class="input-group w-100">
                                           <input type="text" class="form-control" id="mySearch"
                                                 aria-label="Input group example" aria-describedby="basic-addon1" placeholder="ค้นหาชื่อโรค">
