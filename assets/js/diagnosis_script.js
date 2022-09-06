@@ -1,6 +1,5 @@
 const labels = document.querySelectorAll('.accordion-item__label');
 const tabs = document.querySelectorAll('.accordion-tab');
-const nexts = document.querySelectorAll('.next');
 
 function toggleShow() {
     const target = this;

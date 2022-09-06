@@ -113,7 +113,7 @@
                                     ?>
                                     <div class="py-6">
                                           <hr>
-                                          <a href="diagnosis.php" class="btn btn-secondary">วินิจฉัยอีกครั้ง</a>
+                                          <a href="diagnosis.php" class="btn btn-primary">วินิจฉัยอีกครั้ง</a>
                                     </div>
                               </form>
                         </div>

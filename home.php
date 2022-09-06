@@ -127,7 +127,7 @@
                                     data-aos="zoom-in" data-aos-delay="100">
                                     <div class="detail-box" id="searchname">
                                           <div class="img">
-                                                <img class="rounded" width="100%"
+                                                <img class="img-box" width="100%"
                                                       src="uploads/<?php echo $plants[$i]['img']; ?>" alt="">
                                           </div>
                                           <div>

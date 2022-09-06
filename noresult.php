@@ -32,6 +32,18 @@
       <link href="assets/css/style.css" rel="stylesheet">
       <link rel="stylesheet" href="assets/css/custom.css">
 
+      <style>
+            .list-group-item:last-child {
+                  border-bottom-right-radius: inherit;
+                  border-bottom-left-radius: inherit;
+                  background-color: honeydew;
+            }
+            .text-result {
+                  font-weight: bold;
+                  color: #528d61;
+            }
+      </style>
+
 </head>
 
 <body>
@@ -71,20 +83,18 @@
                               <h5>จากการวินิจฉัยโรคเบื้องต้นของระบบจากอาการข้างต้น
                                     พบว่าโรคที่เกิดขึ้นกับไม้ประดับของคุณคือ</h5>
                         </div>
-                        <table class="table table-success">
-                              <thead>
-                              <tbody>
-                                    <tr>
-                                          <td colspan='6' class='text-center'>ไม่สามารถแสดงผลการวินิจฉัยได้ โปรดเลือกเมนูวินิฉัยโรคและเลือกลักษณะอาการเพื่อทำการวินิจฉัยโรค</td>                      
-                                    </tr>
-                              </tbody>
-                              </thead>
-                        </table>
-                        <!-- <div class="row justify-content-md-center">
-                              <div class="col-md-auto">
-                                    <a class="btn btn-primary" href="diagnosis.php">วินิจฉัยเลย</a>
-                              </div>
-                        </div> -->
+                        <hr>
+                        <div class='list-group w-auto my-3 py-4'>
+                              <a class='list-group-item list-group-item-action d-flex gap-3 py-3' aria-current='true'>
+                                    <img src='assets/img/warning.gif' width='60' height='60' class='rounded-circle flex-shrink-0'>
+                                    <div class='d-flex gap-2 w-100 justify-content-center'>
+                                          <div class="text-center">
+                                                <h5 class='mt-2 mb-3 text-result'>ไม่สามารถแสดงผลการวินิจฉัยได้ โปรดเลือกเมนูวินิฉัยโรคและเลือกลักษณะอาการเพื่อทำการวินิจฉัยโรค</h5>
+                                                <p class='mb-0 opacity-75'>Can't show diagnostic results Please select the diagnostic menu and select symptoms for diagnosis.</p>
+                                          </div>
+                                    </div>
+                              </a>
+                        </div>
                   </div>
       </main>
 
