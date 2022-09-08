@@ -113,7 +113,7 @@
                                     ?>
                                     <div class="py-6">
                                           <hr>
-                                          <a href="diagnosis.php" class="btn btn-primary">วินิจฉัยอีกครั้ง</a>
+                                          <a href="diagnosis.php" class="btn btn-primary justify-content-end">วินิจฉัยอีกครั้ง</a>
                                     </div>
                               </form>
                         </div>
@@ -167,7 +167,7 @@
       <!-- Vendor JS Files -->
       <script src="assets/vendor/purecounter/purecounter.js"></script>
       <script src="assets/vendor/aos/aos.js"></script>
-      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
       <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
       <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
       <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>

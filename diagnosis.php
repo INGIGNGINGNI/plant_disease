@@ -352,7 +352,7 @@
                                                             </div>
                                                             <div class="btn-group my-2 mx-2">
                                                                   <input type="radio" class="btn-check" name="wound_color" id="white" value="สีขาว" required />
-                                                                  <label class="btn btn-outline-success" for="white">สีขาว</label>
+                                                                  <label class="btn btn-outline-success" for="white">สีปกติ (ไม่มีแผล)</label>
                                                             </div>
                                                             <hr class="mt-4">
                                                             <div class="row">

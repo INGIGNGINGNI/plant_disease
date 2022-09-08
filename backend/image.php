@@ -104,13 +104,13 @@
                               ?>
                               <h4 class="titleheader text-center ">รูปภาพของ<?php echo $row['name']; ?> </h4>
                               <div class="text-center justify-content-center align-items-center p-4 border-2 border-dashed rounded-3">
-                                    <h6 class="my-2">เลือกรูปภาพเพื่ออัพโหลด</h6>
+                                    <h6 class="my-2">เลือกรูปภาพเพื่ออัปโหลด</h6>
                                     <input type="text" hidden value="<?php echo $id?>" required class="form-control my-3" name="id">
                                     <input type="file" name="file" class="form-control streched-link" required accept="image/jpeg, image/jpg, image/png">
-                                    <p class="small mb-0 mt-2"><b>คำเตือน : </b>สามารถอัพโหลดได้เฉพาะไฟล์นามสกุล JPG, JPEG และ PNG</p>
+                                    <p class="small mb-0 mt-2"><b>คำเตือน : </b>สามารถอัปโหลดได้เฉพาะไฟล์นามสกุล JPG, JPEG และ PNG</p>
                               </div>
                               <div class="d-sm-flex justify-content-end mt-2">
-                                    <input type="submit" name="submit" value="อัพโหลด" class="btn btn-primary mb-3">
+                                    <input type="submit" name="submit" value="อัปโหลด" class="btn btn-primary mb-3">
                                     <a href="index.php" class="btn btn-outline-secondary mb-3 mx-2">กลับ</a>
                               </div>
                         </form>

@@ -17,13 +17,13 @@
                               if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFilePath)) {
                                     $insert = $conn -> query("INSERT INTO images(imgname, plant_id) VALUE ('".$fileName."', $id)");
                                     if ($insert) {
-                                         $_SESSION['success'] = "อัพโหลดไฟล์ <b>" . $fileName . "</b> เรียบร้อยแล้ว";
+                                         $_SESSION['success'] = "อัปโหลดไฟล์ <b>" . $fileName . "</b> เรียบร้อยแล้ว";
                                          echo "<script>
                                          $(document).ready(function () {
                                              Swal.fire ({
                                                  icon: 'success',
                                                  title: 'สำเร็จ',
-                                                 text: 'อัพโหลดรูปภาพเรียบร้อยแล้ว',
+                                                 text: 'อัปโหลดรูปภาพเรียบร้อยแล้ว',
                                                  timer: 2000,
                                                  showConfirmButton: true
                                              });
@@ -31,13 +31,13 @@
                                      </script>";
                                      header("refresh:2; url=image.php?id=$id");
                                     } else {
-                                         $_SESSION['error'] = "อัพโหลดไม่สำเร็จ โปรดลองใหม่อีกครั้ง";
+                                         $_SESSION['error'] = "อัปโหลดไม่สำเร็จ โปรดลองใหม่อีกครั้ง";
                                          echo "<script>
                                          $(document).ready(function () {
                                              Swal.fire ({
                                                  icon: error',
                                                  title: 'เกิดข้อผิดพลาด',
-                                                 text: 'อัพโหลดรูปภาพไม่สำเร็จ',
+                                                 text: 'อัปโหลดรูปภาพไม่สำเร็จ',
                                                  timer: 2000,
                                                  showConfirmButton: true
                                              });
@@ -46,13 +46,13 @@
                                      header("refresh:2; url=image.php?id=$id");
                                     }
                               } else {
-                                   $_SESSION['error'] = "ไม่สามารถอัพโหลดไฟล์นี้ได้ โปรดลองใหม่อีกครั้ง";
+                                   $_SESSION['error'] = "ไม่สามารถอัปโหลดไฟล์นี้ได้ โปรดลองใหม่อีกครั้ง";
                                    echo "<script>
                                    $(document).ready(function () {
                                        Swal.fire ({
                                            icon: error',
                                            title: 'เกิดข้อผิดพลาด',
-                                           text: 'ไม่สามารถอัพโหลดไฟล์นี้ได้',
+                                           text: 'ไม่สามารถอัปโหลดไฟล์นี้ได้',
                                            timer: 2000,
                                            showConfirmButton: true
                                        });
@@ -61,13 +61,13 @@
                                header("refresh:2; url=image.php?id=$id");
                               }
                         } else {
-                             $_SESSION['error'] = "สามารถอัพโหลดได้เฉพาะไฟล์ JPG, JPEG และ PNG โปรดลองใหม่อีกครั้ง";
+                             $_SESSION['error'] = "สามารถอัปโหลดได้เฉพาะไฟล์ JPG, JPEG และ PNG โปรดลองใหม่อีกครั้ง";
                              echo "<script>
                              $(document).ready(function () {
                                  Swal.fire ({
                                      icon: error',
                                      title: 'เกิดข้อผิดพลาด',
-                                     text: 'ไฟล์ที่อัพโหลดไม่ถูกต้อง',
+                                     text: 'ไฟล์ที่อัปโหลดไม่ถูกต้อง',
                                      timer: 2000,
                                      showConfirmButton: true
                                  });
@@ -77,7 +77,7 @@
                         }
                   }
       } else {
-           $_SESSION['error'] = "โปรดเลือกไฟล์เพื่ออัพโหลด";
+           $_SESSION['error'] = "โปรดเลือกไฟล์เพื่ออัปโหลด";
             header("location: image.php?id=$id");
       }
 ?>

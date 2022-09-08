@@ -157,30 +157,29 @@
                                           </div>
                                     </div>
                                     <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                          <h6>ลักษณะของโรค</h6>
+                                          <h5 class="text-green"><strong>ลักษณะของโรค</strong></h5>
                                           <p Align="justify"><?php echo $plant['symptom']; ?></p>
                                           <div class="row">
                                                 <div class="col-lg-6">
                                                       <ul>
-                                                            <li><i class="bi bi-rounded-right"></i> <strong
-                                                                        class="text-green">สาเหตุ :</strong>
+                                                            <li><i class="bi bi-rounded-right"></i>
+                                                                  <h5><strong class="text-green">สาเหตุ :</strong></h5>
                                                                   <?php echo $plant['cause']; ?></li>
-                                                            <li><i class="bi bi-rounded-right"></i> <strong
-                                                                        class="text-green">วิธีการรักษา
-                                                                        :</strong> <?php echo $plant['remedy']; ?></li>
+                                                            
                                                       </ul>
                                                 </div>
                                                 <div class="col-lg-6">
                                                       <ul>
                                                             <li><i class="bi bi-rounded-right"></i>
-                                                                  <strong class="text-green">ไม้ประดับที่พบโรคนี้
-                                                                        :</strong>
+                                                                  <h5><strong class="text-green">ไม้ประดับที่พบโรคนี้ :</strong></h5>
                                                                   <?php echo $plant['type']; ?>
                                                             </li>
                                                       </ul>
                                                 </div>
                                           </div>
-                                          <h6>วิธีการรักษา</h6>
+                                          <h5 class="text-green"><strong>วิธีการรักษา</strong></h5>
+                                          <p Align="justify"><?php echo $plant['remedy']; ?></p>
+                                          <h5 class="text-green"><strong>ข้อควรระวัง</strong></h5>
                                           <p Align="justify"><?php echo $plant['caution']; ?></p>
                                     </div>
                               </div>
