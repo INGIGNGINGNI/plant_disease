@@ -61,6 +61,13 @@
       <!-- Template Main CSS File -->
       <link href="assets/css/style.css" rel="stylesheet">
       <link rel="stylesheet" href="../assets/css/custom.css">
+      <style>
+            .text-result {
+                  font-size: 18px;
+                  font-weight: bold;
+                  color: #528d61;
+            }
+      </style>
 
 </head>
 
@@ -90,7 +97,7 @@
             </div>
       </div>
 
-      <div class="container mt-5 editbox">
+      <div class="container mt-5">
             <form action="update.php" method="post" enctype="multipart/form-data">
                   <?php
                         if (isset($_GET['id'])) {
@@ -100,8 +107,71 @@
                                     $data = $stmt->fetch();
                         }
                   ?>
+                  
+                  <div class="card shadow-sm p-4 card-body p-4 rounded">
+                        <div class="row g-3">
+                              <div class="col-md-4"></div>
+                              <div class="col-md-4 col-sm-12 align-content-end">
+                                    <img width="100%" src="../uploads/<?php echo $data['img']; ?>" id="previewImg" alt="">
+                                    <label for="img" class="col-form-label text-result"></label>
+                                    <input type="file" class="form-control" id="imgInput" name="img" >
+                              </div>
+                              <div class="col-md-4"></div>
+                              <div class="col-md-6 col-sm-12">
+                                    <input type="text" hidden value="<?php echo $data['id']; ?>" required class="form-control"
+                                          name="id">
+                                    <label for="firstname" class="col-form-label text-result">ชื่อของโรค (ไทย) :</label>
+                                    <input type="text" value="<?php echo $data['name']; ?>" required class="form-control"
+                                          name="name">
+                                    <input type="hidden" value="<?php echo $data['img']; ?>" required class="form-control"
+                                          name="img2">
+                              </div>
+                              <div class="col-md-6 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">ชื่อของโรค (อังกฤษ) :</label>
+                                    <input type="text" value="<?php echo $data['enname']; ?>" required class="form-control"
+                                          name="enname">
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">สาเหตุของโรค :</label>
+                                    <textarea type="text" class="form-control" name="cause"
+                                          required><?php echo $data['cause']; ?></textarea>
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">อาการของโรค :</label>
+                                    <textarea type="text" class="form-control" name="symptom"
+                                          required><?php echo $data['symptom']; ?></textarea>
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">การแพร่ระบาด :</label>
+                                    <textarea type="text" class="form-control" name="scourge"
+                                          required><?php echo $data['scourge']; ?></textarea>
+                              </div>
+                              <div class="col-md-12 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">วิธีการรักษา :</label>
+                                    <textarea type="text" class="form-control" name="remedy"
+                                          required><?php echo $data['remedy']; ?></textarea>
+                              </div>
+                              <div class="col-md-6 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">ข้อควรระวัง :</label>
+                                    <textarea type="text" class="form-control" name="caution"
+                                          required><?php echo $data['caution']; ?></textarea>
+                              </div>
+                              <div class="col-md-6 col-sm-12">
+                                    <label for="firstname" class="col-form-label text-result">ไม้ประดับที่พบ :</label>
+                                    <textarea type="text" class="form-control" name="type"
+                                          required><?php echo $data['type']; ?></textarea>
+                              </div>
+                        </div>
+                              
+                        <div class="col-md-12 col-sm-12 mt-4">
+                              <hr>
+                              <button type="submit" name="update" class="btn btn-success">อัพเดต</button>
+                              <a href="index.php" class="btn btn-secondary">กลับ</a> 
+                        </div>
+                  </div>
+                  
 
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                         <input type="text" hidden value="<?php echo $data['id']; ?>" required class="form-control"
                               name="id">
                         <label for="firstname" class="col-form-label">ชื่อของโรค (ไทย) :</label>
@@ -147,37 +217,37 @@
                   </div>
                   <hr>
                   <button type="submit" name="update" class="btn btn-success">อัพเดต</button>
-                  <a href="index.php" class="btn btn-secondary">กลับ</a>
+                  <a href="index.php" class="btn btn-secondary">กลับ</a> -->
             </form>
       </div>
-
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
       </script>
-      <script>
-      let imgInput = document.getElementById('imgInput');
-      let previewImg = document.getElementById('previewImg');
 
-      imgInput.onchange = evt => {
-            const [file] = imgInput.files;
-            if (file) {
-                  previewImg.src = URL.createObjectURL(file);
+      <script>
+            let imgInput = document.getElementById('imgInput');
+            let previewImg = document.getElementById('previewImg');
+
+            imgInput.onchange = evt => {
+                  const [file] = imgInput.files;
+                  if (file) {
+                        previewImg.src = URL.createObjectURL(file);
+                  }
             }
-      }
       </script>
 
       <script type="text/javascript">
-      $(document).ready(function() {
-            $('textarea').each(function() {
-                  this.setAttribute('style', 'height:' + (this.scrollHeight) +
-                        'px;overflow-y:hidden');
-            }).on('input', function() {
-                  this.style.height = 'auto';
-                  this.style.height = (this.scrollHeight) + 'px';
-                  console.log(this.scrollHeight);
+            $(document).ready(function() {
+                  $('textarea').each(function() {
+                        this.setAttribute('style', 'height:' + (this.scrollHeight) +
+                              'px;overflow-y:hidden');
+                  }).on('input', function() {
+                        this.style.height = 'auto';
+                        this.style.height = (this.scrollHeight) + 'px';
+                        console.log(this.scrollHeight);
+                  });
             });
-      });
       </script>
 
       <!-- Vendor JS Files -->

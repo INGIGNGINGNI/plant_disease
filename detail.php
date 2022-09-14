@@ -157,15 +157,26 @@
                                           </div>
                                     </div>
                                     <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                          <h5 class="text-green"><strong>ลักษณะของโรค</strong></h5>
-                                          <p Align="justify"><?php echo $plant['symptom']; ?></p>
-                                          <div class="row">
+                                          <div class="my-4">
+                                                <h5 class="text-green"><strong>ลักษณะของโรค</strong></h5>
+                                                <p Align="justify"><?php echo $plant['symptom']; ?></p>
+                                          </div>
+
+                                          <div class="my-4">
+                                                <h5 class="text-green"><strong>สาเหตุ</strong></h5>
+                                                <p Align="justify"><?php echo $plant['cause']; ?></p>
+                                          </div>
+
+                                          <div class="my-4">
+                                                <h5 class="text-green"><strong>ไม้ประดับที่พบโรคนี้</strong></h5>
+                                                <p Align="justify"><?php echo $plant['type']; ?></p>
+                                          </div>
+                                          <!-- <div class="row pt-0">
                                                 <div class="col-lg-6">
                                                       <ul>
                                                             <li><i class="bi bi-rounded-right"></i>
                                                                   <h5><strong class="text-green">สาเหตุ :</strong></h5>
                                                                   <?php echo $plant['cause']; ?></li>
-                                                            
                                                       </ul>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -176,11 +187,21 @@
                                                             </li>
                                                       </ul>
                                                 </div>
+                                          </div> -->
+                                          <div class="my-4">
+                                                <h5 class="text-green"><strong>การแพร่ระบาดของโรค</strong></h5>
+                                                <p Align="justify"><?php echo $plant['scourge']; ?></p>
                                           </div>
-                                          <h5 class="text-green"><strong>วิธีการรักษา</strong></h5>
-                                          <p Align="justify"><?php echo $plant['remedy']; ?></p>
-                                          <h5 class="text-green"><strong>ข้อควรระวัง</strong></h5>
-                                          <p Align="justify"><?php echo $plant['caution']; ?></p>
+
+                                          <div class="my-4">
+                                                <h5 class="text-green"><strong>วิธีการรักษา</strong></h5>
+                                                <p Align="justify"><?php echo $plant['remedy']; ?></p>
+                                          </div>
+                                                
+                                          <div class="my-4">
+                                                <h5 class="text-green"><strong>ข้อควรระวัง</strong></h5>
+                                                <p Align="justify"><?php echo $plant['caution']; ?></p>
+                                          </div>
                                     </div>
                               </div>
                         </div>

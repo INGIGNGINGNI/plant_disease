@@ -10,6 +10,7 @@
         $enname = $_POST['enname'];
         $cause = $_POST['cause'];
         $symptom = $_POST['symptom'];
+        $scourge = $_POST['scourge'];
         $remedy = $_POST['remedy'];
         $caution = $_POST['caution'];
         $type = $_POST['type'];
@@ -43,11 +44,12 @@
                 }
             } elseif (in_array($fileActExt, $allow)) {
                             if (move_uploaded_file($img['tmp_name'], $filePath)) {
-                                $sql = $conn->prepare("INSERT INTO plants(name, enname, cause, symptom, remedy, caution, type, img) VALUES(:name, :enname, :cause, :symptom, :remedy, :caution, :type, :img)");
+                                $sql = $conn->prepare("INSERT INTO plants(name, enname, cause, symptom, scourge, remedy, caution, type, img) VALUES(:name, :enname, :cause, :symptom, :scourge, :remedy, :caution, :type, :img)");
                                 $sql->bindParam(":name", $name);
                                 $sql->bindParam(":enname", $enname);
                                 $sql->bindParam(":cause", $cause);
                                 $sql->bindParam(":symptom", $symptom);
+                                $sql->bindParam(":scourge", $scourge);
                                 $sql->bindParam(":remedy", $remedy);
                                 $sql->bindParam(":caution", $caution);
                                 $sql->bindParam(":type", $type);

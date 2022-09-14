@@ -15,7 +15,6 @@ function toggleShow() {
                 tab.classList.remove("accordion-active");
             }
         }
-        
     });
     
     labels.forEach(function(label) {

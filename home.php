@@ -75,7 +75,7 @@
             <div class="homeheader">
                   <div class="align">
                         <div class="titlehome">
-                              <h4>Web application for diagnosis of ornamental plant diseases </h4>
+                              <h4>Web application for diagnosis of ornamental plant diseases</h4>
                         </div>
                         <div class="titlehome2">
                               <h4>เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ</h4>
@@ -87,8 +87,8 @@
                         <div class="section-title">
                               <h2>ความรู้ทั่วไปเกี่ยวกับโรคในไม้ประดับ</h2>
                         </div>
-
-                        <div class="row gy4">
+                        
+                        <div class="row gy-4">
                               <div class="col-md-4 mb-3"></div>
                               <div class="col-md-4 mb-3"></div>
                               <div class="col-md-4 mb-3">

@@ -11,6 +11,7 @@
             $enname = $_POST['enname'];
             $cause = $_POST['cause'];
             $symptom = $_POST['symptom'];
+            $scourge = $_POST['scourge'];
             $remedy = $_POST['remedy'];
             $caution = $_POST['caution'];
             $type = $_POST['type'];
@@ -36,12 +37,13 @@
                 $fileNew = $img2;
             }
     
-            $sql = $conn->prepare("UPDATE plants SET name = :name, enname = :enname, cause = :cause, symptom = :symptom, remedy = :remedy, caution = :caution, type = :type, img = :img WHERE id = :id");
+            $sql = $conn->prepare("UPDATE plants SET name = :name, enname = :enname, cause = :cause, symptom = :symptom, scourge = :scourge, remedy = :remedy, caution = :caution, type = :type, img = :img WHERE id = :id");
             $sql->bindParam(":id", $id);
             $sql->bindParam(":name", $name);
             $sql->bindParam(":enname", $enname);
             $sql->bindParam(":cause", $cause);
             $sql->bindParam(":symptom", $symptom);
+            $sql->bindParam(":scourge", $scourge);
             $sql->bindParam(":remedy", $remedy);
             $sql->bindParam(":caution", $caution);
             $sql->bindParam(":type", $type);

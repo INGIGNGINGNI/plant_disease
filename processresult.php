@@ -600,20 +600,20 @@
                   <div class="collapse" id="answerCollapse<?= $data[0]['id'] ?>">
                         <div class="card card-body">
                               <div class="col my-2">
-                                    <h4 class="text-answer">สาเหตุของโรค</h4>
-                                    <p class="text-answer-p" align="justify"><?=$data[0]['cause']?></p>
-                              </div>
-                              <div class="col my-2">
                                     <h4 class="text-answer">ลักษณะอาการของโรค</h4>
-                                    <p class="text-answer-p" align="justify"><?=$data[0]['symptom']?></p>
+                                    <p class="text-answer-p" Align="justify"><?=$data[0]['symptom']?></p>
                               </div>
                               <div class="col my-2">
                                     <h4 class="text-answer">การป้องกันและวิธีการรักษา</h4>
-                                    <p class="text-answer-p" align="justify"><?=$data[0]['remedy']?></p>
+                                    <p class="text-answer-p" Align="justify"><?=$data[0]['remedy']?></p>
                               </div>
                               <div class="col my-2">
                                     <h4 class="text-answer">ข้อควรระวัง <span class='text-muted'>(เกี่ยวกับโรคหรือการแพร่ระบาด)</span></h4>
-                                    <p class="text-answer-p" align="justify"><?=$data[0]['caution']?></p>
+                                    <p class="text-answer-p" Align="justify"><?=$data[0]['caution']?></p>
+                              </div>
+                              <div class="col mt-2 ms-auto">
+                                    <hr>
+                                    <p>สามารถอ่านข้อมูลของ <?=$data[0]['name']?> เพิ่มเติม<a href="detail.php?id=<?= $data[0]['id'] ?>" target="_blank">ได้ที่นี่</a></p>
                               </div>
                         </div>
                   </div>
@@ -668,7 +668,7 @@
             }
 
             .text-result {
-            font-size: 18px;
+                  font-size: 18px;
                   font-weight: bold;
                   color: #528d61;
             }
