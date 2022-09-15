@@ -1,5 +1,4 @@
 <?php 
-      session_start();
       include_once("../backend/config_sqli.php");
 ?>
 <!DOCTYPE html>
@@ -24,18 +23,42 @@
             rel="stylesheet">
 
       <link rel="stylesheet" href="../assets/css/custom.css">
-      
+    
       <style>
-            body {
-                  width: 100%;
-                  background-image: url("../assets/img/admin-bg2.png");
-                  background-size: cover;
+
+            .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
             }
+
+            .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+            }
+
+            .container:hover .image {
+            opacity: 0.3;
+            }
+
+            .container:hover .middle {
+            opacity: 1;
+            }
+
       </style>
       
 </head>
 
-<body>
+<body background="../assets/img/admin-background.png">
       <div class="container">
             <header
                   class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -93,21 +116,25 @@
                               </div>
                         <?php } ?>
                   </div>
+
+            <div class="px-4 text-center">
+                  <?php 
+                        if (isset($_GET['id'])) {
+                              $id = $_GET['id'];
+                              $query = $conn -> query("SELECT  plants.id, plants.name FROM plants WHERE id = $id && status='1' ");
+                              $row = $query -> fetch_assoc();
+                        }
+                  ?>
+                  <h3 class="display-6 fw-bold mb-4 text-success">รูปภาพของ<?php echo $row['name']; ?></h3>
+            </div>
+
                   <div class="col-12">
                         <form action="img_upload.php" method="post" enctype="multipart/form-data">
-                              <?php 
-                                    if (isset($_GET['id'])) {
-                                          $id = $_GET['id'];
-                                          $query = $conn -> query("SELECT  plants.id, plants.name FROM plants WHERE id = $id && status='1' ");
-                                          $row = $query -> fetch_assoc();
-                                    }
-                              ?>
-                              <h4 class="titleheader text-center ">รูปภาพของ<?php echo $row['name']; ?> </h4>
                               <div class="text-center justify-content-center align-items-center p-4 border-2 border-dashed rounded-3">
-                                    <h6 class="my-2">เลือกรูปภาพเพื่ออัปโหลด</h6>
+                                    <h5 class="my-2">เลือกรูปภาพเพื่ออัปโหลด</h5>
                                     <input type="text" hidden value="<?php echo $id?>" required class="form-control my-3" name="id">
                                     <input type="file" name="file" class="form-control streched-link" required accept="image/jpeg, image/jpg, image/png">
-                                    <p class="small mb-0 mt-2"><b>คำเตือน : </b>สามารถอัปโหลดได้เฉพาะไฟล์นามสกุล JPG, JPEG และ PNG</p>
+                                    <p class="mb-0 mt-3"><strong>คำเตือน : </strong>สามารถอัปโหลดได้เฉพาะไฟล์นามสกุล JPG, JPEG และ PNG</p>
                               </div>
                               <div class="d-sm-flex justify-content-end mt-2">
                                     <input type="submit" name="submit" value="อัปโหลด" class="btn btn-primary mb-3">
@@ -146,6 +173,10 @@
                   </div>
             </div>
             
+      </div>
+      <div class="footers mt-5 pt-5">
+            <?php include "../footer.php" ;?>
+
       </div>
             
       <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

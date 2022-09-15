@@ -1,33 +1,5 @@
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <?php 
-      session_start();
-      require_once("../backend/config.php");
-
-      if (!isset($_SESSION['username'])) {
-            $_SESSION['msg'] = "กรุณาเข้าสู่ระบบก่อนเข้าใช้งาน";
-            header('location: loginform.php');
-      }
-
-      if (isset($_GET['logout'])) {
-            session_destroy();
-            unset($_SESSION['username']);
-            echo "<script>
-                  $(document).ready(function () {
-                        Swal.fire ({
-                              icon: 'success',
-                              title: 'ออกจากระบบแล้ว',
-                              text: 'กำลังกลับไปยังหน้าล็อคอิน',
-                              timer: 2000,
-                              showConfirmButton: true
-                        });
-                  });
-            </script>";
-            header("refresh:2; url=../loginform.php");
-            // header('location: ../loginform.php');
-        }
-
+      include "action.php"
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +33,13 @@
       <!-- Template Main CSS File -->
       <link href="assets/css/style.css" rel="stylesheet">
       <link rel="stylesheet" href="../assets/css/custom.css">
+
       <style>
+            body {
+                  width: 100%;
+                  background-image: url("../assets/img/admin-background.png");
+                  background-size: cover;
+            }
             .text-result {
                   font-size: 18px;
                   font-weight: bold;
@@ -98,7 +76,7 @@
       </div>
 
       <div class="container mt-5">
-            <form action="update.php" method="post" enctype="multipart/form-data">
+            <form action="update.php" method="post" enctype="multipart/form-data" class="needs-validation m-0" novalidate>
                   <?php
                         if (isset($_GET['id'])) {
                                     $id = $_GET['id'];
@@ -115,51 +93,50 @@
                                     <img width="100%" src="../uploads/<?php echo $data['img']; ?>" id="previewImg" alt="">
                                     <label for="img" class="col-form-label text-result"></label>
                                     <input type="file" class="form-control" id="imgInput" name="img" >
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-4"></div>
                               <div class="col-md-6 col-sm-12">
-                                    <input type="text" hidden value="<?php echo $data['id']; ?>" required class="form-control"
-                                          name="id">
+                                    <input type="text" hidden value="<?php echo $data['id']; ?>" required class="form-control" name="id">
+                                    <input type="hidden" value="<?php echo $data['img']; ?>" required class="form-control" name="img2">
                                     <label for="firstname" class="col-form-label text-result">ชื่อของโรค (ไทย) :</label>
-                                    <input type="text" value="<?php echo $data['name']; ?>" required class="form-control"
-                                          name="name">
-                                    <input type="hidden" value="<?php echo $data['img']; ?>" required class="form-control"
-                                          name="img2">
+                                    <input type="text" value="<?php echo $data['name']; ?>" required class="form-control" name="name">
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-6 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">ชื่อของโรค (อังกฤษ) :</label>
-                                    <input type="text" value="<?php echo $data['enname']; ?>" required class="form-control"
-                                          name="enname">
+                                    <input type="text" value="<?php echo $data['enname']; ?>" required class="form-control" name="enname">
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-12 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">สาเหตุของโรค :</label>
-                                    <textarea type="text" class="form-control" name="cause"
-                                          required><?php echo $data['cause']; ?></textarea>
+                                    <textarea type="text" class="form-control" name="cause"  required><?php echo $data['cause']; ?></textarea>
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-12 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">อาการของโรค :</label>
-                                    <textarea type="text" class="form-control" name="symptom"
-                                          required><?php echo $data['symptom']; ?></textarea>
+                                    <textarea type="text" class="form-control" name="symptom"  required><?php echo $data['symptom']; ?></textarea>
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-12 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">การแพร่ระบาด :</label>
-                                    <textarea type="text" class="form-control" name="scourge"
-                                          required><?php echo $data['scourge']; ?></textarea>
+                                    <textarea type="text" class="form-control" name="scourge"  required><?php echo $data['scourge']; ?></textarea>
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-12 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">วิธีการรักษา :</label>
-                                    <textarea type="text" class="form-control" name="remedy"
-                                          required><?php echo $data['remedy']; ?></textarea>
+                                    <textarea type="text" class="form-control" name="remedy"  required><?php echo $data['remedy']; ?></textarea>
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-6 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">ข้อควรระวัง :</label>
-                                    <textarea type="text" class="form-control" name="caution"
-                                          required><?php echo $data['caution']; ?></textarea>
+                                    <textarea type="text" class="form-control" name="caution"  required><?php echo $data['caution']; ?></textarea>
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                               <div class="col-md-6 col-sm-12">
                                     <label for="firstname" class="col-form-label text-result">ไม้ประดับที่พบ :</label>
-                                    <textarea type="text" class="form-control" name="type"
-                                          required><?php echo $data['type']; ?></textarea>
+                                    <textarea type="text" class="form-control" name="type"  required><?php echo $data['type']; ?></textarea>
+                                    <div class="invalid-feedback">โปรดกรอกข้อมูลในฟิลด์นี้</div>
                               </div>
                         </div>
                               
@@ -169,57 +146,10 @@
                               <a href="index.php" class="btn btn-secondary">กลับ</a> 
                         </div>
                   </div>
-                  
-
-                  <!-- <div class="mb-3">
-                        <input type="text" hidden value="<?php echo $data['id']; ?>" required class="form-control"
-                              name="id">
-                        <label for="firstname" class="col-form-label">ชื่อของโรค (ไทย) :</label>
-                        <input type="text" value="<?php echo $data['name']; ?>" required class="form-control"
-                              name="name">
-                        <input type="hidden" value="<?php echo $data['img']; ?>" required class="form-control"
-                              name="img2">
-                  </div>
-                  <div class="mb-3">
-                        <label for="firstname" class="col-form-label">ชื่อของโรค (อังกฤษ) :</label>
-                        <input type="text" value="<?php echo $data['enname']; ?>" required class="form-control"
-                              name="enname">
-                  </div>
-                  <div class="mb-3">
-                        <label for="firstname" class="col-form-label">สาเหตุของโรค :</label>
-                        <input type="text" value="<?php echo $data['cause']; ?>" required class="form-control"
-                              name="cause">
-                  </div>
-                  <div class="mb-3">
-                        <label for="firstname" class="col-form-label">อาการของโรค :</label>
-                        <textarea type="text" class="form-control" name="symptom"
-                              required><?php echo $data['symptom']; ?></textarea>
-                  </div>
-                  <div class="mb-3">
-                        <label for="firstname" class="col-form-label">วิธีการรักษา :</label>
-                        <textarea type="text" class="form-control" name="remedy"
-                              required><?php echo $data['remedy']; ?></textarea>
-                  </div>
-                  <div class="mb-3">
-                        <label for="firstname" class="col-form-label">ข้อควรระวัง :</label>
-                        <textarea type="text" class="form-control" name="caution"
-                              required><?php echo $data['caution']; ?></textarea>
-                  </div>
-                  <div class="mb-3">
-                        <label for="firstname" class="col-form-label">ไม้ประดับที่พบ :</label>
-                        <textarea type="text" class="form-control" name="type"
-                              required><?php echo $data['type']; ?></textarea>
-                  </div>
-                  <div class="mb-3">
-                        <label for="img" class="col-form-label">รูปภาพ :</label>
-                        <input type="file" class="form-control" id="imgInput" name="img">
-                        <img width="100%" src="../uploads/<?php echo $data['img']; ?>" id="previewImg" alt="">
-                  </div>
-                  <hr>
-                  <button type="submit" name="update" class="btn btn-success">อัพเดต</button>
-                  <a href="index.php" class="btn btn-secondary">กลับ</a> -->
             </form>
       </div>
+
+      <?php include "../footer.php" ;?>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -250,6 +180,24 @@
             });
       </script>
 
+      <script>
+            (function() { 'use strict'
+                  var forms = document.querySelectorAll('.needs-validation')
+
+                  Array.prototype.slice.call(forms)
+                        .forEach(function(form) {
+                              form.addEventListener('submit', function(event) {
+                                    if (!form.checkValidity()) {
+                                          event.preventDefault()
+                                          event.stopPropagation()
+                                    }
+
+                                    form.classList.add('was-validated')
+                              }, false)
+                        })
+            })()
+      </script>
+
       <!-- Vendor JS Files -->
       <script src="assets/vendor/purecounter/purecounter.js"></script>
       <script src="assets/vendor/aos/aos.js"></script>
@@ -260,6 +208,7 @@
       <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
       <script src="assets/vendor/php-email-form/validate.js"></script>
       <script src="assets/js/main.js"></script>
+      
 
 </body>
 
