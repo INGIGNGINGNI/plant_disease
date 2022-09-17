@@ -7,7 +7,7 @@
 
       if (!isset($_SESSION['username'])) {
             $_SESSION['msg'] = "กรุณาเข้าสู่ระบบก่อนเข้าใช้งาน";
-            header('location: loginform.php');
+            header('location: ../loginform.php');
       }
 
       if (isset($_GET['delete'])) {
@@ -21,14 +21,13 @@
             }
       }
 
-      if (isset($_GET['deleteIMG'])) {
-            $delete_id = $_GET['deleteIMG'];
-            $delete_stmt = $conn -> query("UPDATE  images set status='0' WHERE id = $delete_id");
+      if (isset($_GET['lastDelete'])) {
+            $delete_id = $_GET['lastDelete'];
+            $delete_stmt = $conn -> query("DELETE  FROM plants WHERE id = $delete_id");
             $delete_stmt -> execute();
 
             if ($delete_stmt) {
                   $_SESSION['success'] = "ลบข้อมูลเรียบร้อยแล้ว";
-                  header("refresh:2; url=index.php");
             }
       }
 
@@ -69,6 +68,5 @@
                   });
             </script>";
             header("refresh:2; url=../loginform.php");
-            // header('location: ../loginform.php');
       }
 ?>

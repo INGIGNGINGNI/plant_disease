@@ -1,5 +1,6 @@
 <?php 
-      include "action.php"
+      include "action.php";
+      include "modal.php";
 ?>
 
 <!DOCTYPE html>
@@ -70,8 +71,8 @@
       </div>
 
       <div class="container mt-4">
-            <div class="container text-center">
-                  <h4 class="titleheader">แก้ไขข้อมูลโรคของต้นไม้</h4>
+            <div class="container px-4 pt-2 my-5 text-center">
+            <h3 class="display-6 fw-bold mb-4 text-success">แก้ไขข้อมูลโรคในไม้ประดับ</h3>
             </div>
       </div>
 

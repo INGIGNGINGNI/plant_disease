@@ -23,39 +23,7 @@
             rel="stylesheet">
 
       <link rel="stylesheet" href="../assets/css/custom.css">
-    
-      <style>
 
-            .image {
-            opacity: 1;
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: .5s ease;
-            backface-visibility: hidden;
-            }
-
-            .middle {
-            transition: .5s ease;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            text-align: center;
-            }
-
-            .container:hover .image {
-            opacity: 0.3;
-            }
-
-            .container:hover .middle {
-            opacity: 1;
-            }
-
-      </style>
-      
 </head>
 
 <body background="../assets/img/admin-background.png">

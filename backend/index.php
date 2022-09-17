@@ -23,6 +23,9 @@
       <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet">
 
+      <!-- Flaticon -->
+      <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
       <link rel="stylesheet" href="../assets/css/custom.css">
 
       <style>
@@ -62,17 +65,36 @@
       </div>
 
       <div class="px-4 pt-2 my-5 text-center border-bottom">
-            <h3 class="display-6 fw-bold mb-4">ข้อมูลโรคในไม้ประดับ</h3>
+            <h3 class="display-6 fw-bold mb-4">การจัดการข้อมูลโรคในไม้ประดับ</h3>
             <div class="col-lg-6 mx-auto">
-                  <p class="lead mb-4">หน้าจอการจัดการข้อมูลและรูปภาพโรคของไม้ประดับ สำหรับผู้ดูแลระบบ เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ <br>(Web application for diagnosis of ornamental plant diseases)</p>
+                  <p class="lead mb-4">หน้าจอการจัดการข้อมูลและรูปภาพโรคของไม้ประดับ สำหรับผู้ดูแลระบบ เว็บแอปพลิเคชันเพื่อการวินิจฉัยโรคในไม้ประดับ (Web application for diagnosis of ornamental plant diseases)</p>
                   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5" >
                         <button type="button" class="btn btn-success btn-lg px-4" data-bs-toggle="modal" 
                               data-bs-target="#plantModal">เพิ่มข้อมูล</button>
-                        <button type="button" class="btn btn-outline-success btn-lg px-4" data-bs-toggle="collapse" data-bs-target="#restoreData" 
-                              aria-expanded="false" aria-controls="restoreData">คืนค่าข้อมูล</button>
                         <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="collapse" data-bs-target="#showData" 
-                              aria-expanded="false" aria-controls="showData">ดูข้อมูลทั้งหมด</button>
+                              aria-expanded="false" aria-controls="showData">ดูข้อมูล</button>
                   </div>
+            </div>
+
+            <div class="container text-start">
+                  <?php if (isset($_SESSION['success'])) { ?>
+                        <div class="alert alert-success">
+                              <?php 
+                                    echo $_SESSION['success']; 
+                                    unset ($_SESSION['success']);
+                              ?>
+                              <!-- <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div> -->
+                  <?php } ?>
+
+                  <?php if (isset($_SESSION['error'])) { ?>
+                        <div class="alert alert-danger">
+                              <?php 
+                                    echo $_SESSION['error']; 
+                                    unset ($_SESSION['error']);
+                              ?>
+                        </div>
+                  <?php } ?>
             </div>
             
             <?php include "modal.php"; ?>
@@ -90,30 +112,11 @@
 
       <?php include "../footer.php" ;?>
 
-      <?php if (isset($_SESSION['success'])) { ?>
-            <div class="alert alert-success">
-                  <?php 
-                        echo $_SESSION['success']; 
-                        unset ($_SESSION['success']);
-                  ?>
-            </div>
-      <?php } ?>
-
-      <?php if (isset($_SESSION['error'])) { ?>
-            <div class="alert alert-danger">
-                  <?php 
-                        echo $_SESSION['error']; 
-                        unset ($_SESSION['error']);
-                  ?>
-            </div>
-      <?php } ?>
-      
-
       <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-      </script>
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="assets/js/main.js"></script>
 
       <script>
             let imgInput = document.getElementById('imgInput');
@@ -202,8 +205,7 @@
             })()
       </script>
 
-      <!-- Vendor JS Files -->
-      <script src="assets/js/main.js"></script>
+      
 
 </body>
 
