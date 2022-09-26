@@ -17,7 +17,7 @@
                               if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFilePath)) {
                                     $insert = $conn -> query("INSERT INTO images(imgname, plant_id) VALUE ('".$fileName."', $id)");
                                     if ($insert) {
-                                         $_SESSION['success'] = "อัปโหลดไฟล์ <b>" . $fileName . "</b> เรียบร้อยแล้ว";
+                                         $_SESSION['completed'] = "อัปโหลดไฟล์ <b>" . $fileName . "</b> เรียบร้อยแล้ว";
                                          echo "<script>
                                          $(document).ready(function () {
                                              Swal.fire ({
@@ -31,7 +31,7 @@
                                      </script>";
                                      header("refresh:2; url=image.php?id=$id");
                                     } else {
-                                         $_SESSION['error'] = "อัปโหลดไม่สำเร็จ โปรดลองใหม่อีกครั้ง";
+                                         $_SESSION['failed'] = "อัปโหลดไม่สำเร็จ โปรดลองใหม่อีกครั้ง";
                                          echo "<script>
                                          $(document).ready(function () {
                                              Swal.fire ({
@@ -46,7 +46,7 @@
                                      header("refresh:2; url=image.php?id=$id");
                                     }
                               } else {
-                                   $_SESSION['error'] = "ไม่สามารถอัปโหลดไฟล์นี้ได้ โปรดลองใหม่อีกครั้ง";
+                                   $_SESSION['failed'] = "ไม่สามารถอัปโหลดไฟล์นี้ได้ โปรดลองใหม่อีกครั้ง";
                                    echo "<script>
                                    $(document).ready(function () {
                                        Swal.fire ({
@@ -61,7 +61,7 @@
                                header("refresh:2; url=image.php?id=$id");
                               }
                         } else {
-                             $_SESSION['error'] = "สามารถอัปโหลดได้เฉพาะไฟล์ JPG, JPEG และ PNG โปรดลองใหม่อีกครั้ง";
+                             $_SESSION['failed'] = "สามารถอัปโหลดได้เฉพาะไฟล์ JPG, JPEG และ PNG โปรดลองใหม่อีกครั้ง";
                              echo "<script>
                              $(document).ready(function () {
                                  Swal.fire ({
@@ -77,7 +77,7 @@
                         }
                   }
       } else {
-           $_SESSION['error'] = "โปรดเลือกไฟล์เพื่ออัปโหลด";
+           $_SESSION['failed'] = "โปรดเลือกไฟล์เพื่ออัปโหลด";
             header("location: image.php?id=$id");
       }
 ?>

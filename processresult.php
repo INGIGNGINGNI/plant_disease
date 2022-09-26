@@ -1,17 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-      $(document).ready(function() {
-      Swal.fire({
-            icon: 'success',
-            title: 'วินิจฉัยสำเร็จ',
-            text: 'ระบบได้ทำการวินิจฉัยโรคจากคำตอบของคุณเรียบร้อยแล้ว',
-            timer: 2000,
-      })
-      });
-</script>
-
 <?php
       require_once "backend/config.php";
       $id_tmp = array();
@@ -26,6 +15,17 @@
             $wound_nature = $_POST['wound_nature'];
             $wound_shape = $_POST['wound_shape'];
             $wound_color = $_POST['wound_color'];
+
+            echo "<script>
+            $(document).ready(function() {
+            Swal.fire({
+                  icon: 'success',
+                  title: 'วินิจฉัยสำเร็จ',
+                  text: 'ระบบได้ทำการวินิจฉัยโรคจากคำตอบของคุณเรียบร้อยแล้ว',
+                  timer: 2000,
+            })
+            });
+      </script>";
             
 
             echo "<div class='row g-3 mb-4'>
@@ -619,17 +619,18 @@
                   </div>
                   <?php } ?>
             <?php } else { ?>
-            <div class='list-group w-auto mt-4'>
-            <a class='list-group-item list-group-item-action d-flex gap-3 py-3' aria-current='true'>
-                  <img src='assets/img/like.gif' width='60' height='60' class='rounded-circle flex-shrink-0'>
-                  <div class='d-flex gap-2 w-100 justify-content-center'>
-                        <div class="text-center">
-                        <h4 class='mt-2 mb-3 text-result'>ไม้ประดับของคุณไม่เป็นโรค</h4>
-                        <p class='mb-0 opacity-75'>Your ornamental plants are not disease free.</p>
-                        </div>
+                  <div class='list-group w-auto mt-4'>
+                        <a class='list-group-item list-group-item-action d-flex gap-3 py-3' aria-current='true'>
+                              <img src='assets/img/like.gif' width='60' height='60' class='rounded-circle flex-shrink-0'>
+                              <div class='d-flex gap-2 w-100 justify-content-center'>
+                                    <div class="text-center">
+                                          <h4 class='mt-2 mb-3 text-result'>วินิจฉัยแล้วพบว่าไม้ประดับของคุณไม่เป็นโรค</h4>
+                                          <p class='mb-0 opacity-75'>หรืออาจเป็นโรคอื่น ๆ ที่นอกเหนือจากโรคแอนแทรกโนส โรคใบจุด โรคใบจุดสีดำ โรคใบแห้ง โรคใบไหม้ 
+                                                โรครากเน่า โรคลำต้นเน่า โรคราสนิมลีลาวดี โรคราแป้ง และโรคราน้ำค้าง</p>
+                                    </div>
+                              </div>
+                        </a>
                   </div>
-            </a>
-            </div>
             <?php } 
 
       } else {
