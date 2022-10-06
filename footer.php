@@ -32,6 +32,7 @@
                                                 <use xlink:href="#globe"></use>
                                           </svg></a></li>
                         </ul>
+                        <a href="loginform.php" class="btn btn-outline-success">สำหรับผู้ดูแลระบบ</a>
                   </footer>
             </div>
       </footer>

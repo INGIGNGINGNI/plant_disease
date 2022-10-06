@@ -83,7 +83,7 @@
                               </ul>
                               <div class="col-md-4 text-end">
                                     <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                                    <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                                    <!-- <a href="loginform.php" class="btn btn-success">Admin Page</a> -->
                               </div>
                         </header>
                   </div>
@@ -124,8 +124,7 @@
       <?php include "footer.php" ;?>
 
       <div id="preloader"></div>
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                  class="bi bi-arrow-up-short"></i></a>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
       <!-- Vendor JS Files -->
       <script src="assets/vendor/purecounter/purecounter.js"></script>
@@ -143,18 +142,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
       </script>
 
-      <script type="text/javascript">
-            $(document).ready(function() {
-                  $('textarea').each(function() {
-                        this.setAttribute('style', 'height:' + (this.scrollHeight) +
-                              'px;overflow-y:hidden');
-                  }).on('input', function() {
-                        this.style.height = 'auto';
-                        this.style.height = (this.scrollHeight) + 'px';
-                        console.log(this.scrollHeight);
-                  });
-            });
-      </script>
+      <script src="assets/js/textArea.js"></script>
 
 </body>
 

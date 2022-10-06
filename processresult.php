@@ -17,52 +17,15 @@
             $wound_color = $_POST['wound_color'];
 
             echo "<script>
-            $(document).ready(function() {
-            Swal.fire({
-                  icon: 'success',
-                  title: 'วินิจฉัยสำเร็จ',
-                  text: 'ระบบได้ทำการวินิจฉัยโรคจากคำตอบของคุณเรียบร้อยแล้ว',
-                  timer: 2000,
-            })
-            });
-      </script>";
-            
-
-            echo "<div class='row g-3 mb-4'>
-            <div class='card p-0'>
-                  <div class='card-header'>
-                        ลักษณะที่เกิดขึ้นกับไม้ประดับของคุณ
-                  </div>
-                  <div class='card-body p-32'>
-                        <div class='row my-12'>
-                              <div class='col-md-3'>
-                                    <label class='form-label text-result'>บริเวณที่เกิดแผล</label>
-                                    <input type='text' class='form-control form-control2' readonly value=' ".$wound_area." ' >
-                              </div>
-                              <div class='col-md-3'>
-                                    <label class='form-label text-result'>สิ่งปะปน</label>
-                                    <input type='text' class='form-control form-control2' readonly value=' ".$contamination." ' >
-                              </div>
-                              <div class='col-md-3'>
-                                    <label class='form-label text-result'>ลักษณะของต้น</label>
-                                    <input type='text' class='form-control form-control2' readonly value=' ".$look." ' >
-                              </div>
-                              <div class='col-md-3'>
-                                    <label class='form-label text-result'>ลักษณะของแผล</label>
-                                    <input type='text' class='form-control form-control2' readonly value=' ".$wound_nature." ' >
-                              </div>
-                              <div class='col-md-3'>
-                                    <label class='form-label text-result'>รูปร่างของแผล</label>
-                                    <input type='text' class='form-control form-control2' readonly value=' ".$wound_shape." ' >
-                              </div>
-                              <div class='col-md-3'>
-                                    <label class='form-label text-result'>สีของแผล</label>
-                                    <input type='text' class='form-control form-control2' readonly value=' ".$wound_color." ' >
-                              </div>
-                        </div>
-                  </div>
-            </div>          
-            </div><hr>" ;
+                        $(document).ready(function() {
+                              Swal.fire({
+                                    icon: 'success',
+                                    title: 'วินิจฉัยสำเร็จ',
+                                    text: 'ระบบได้ทำการวินิจฉัยโรคจากคำตอบของคุณเรียบร้อยแล้ว',
+                                    timer: 2000,
+                              })
+                        });
+                  </script>";
 
             // rule base #1
             if ($contamination == 'ราสีดำ') {
@@ -585,9 +548,7 @@
                               <div class="col-md-8">
                                     <div class="card-body">
                                           <h5 class="card-title text-answer"><?= $data[0]['name']." (".$data[0]['enname'].") " ?></h5>
-                                          <article>
-                                                <p class="card-text"><?= $data[0]['symptom'] ?></p>
-                                          </article>
+                                          <article><p class="card-text"><?= $data[0]['symptom'] ?></p></article>
                                           <button class="btn btn-primary my-4" type="button" id="<?= $data[0]['id']?>"
                                                       data-bs-toggle="collapse" data-bs-target="#answerCollapse<?= $data[0]['id'] ?>"
                                                       aria-expanded="false" aria-controls="answerCollapse<?= $data[0]['id'] ?>">ดูเพิ่มเติม
@@ -619,7 +580,7 @@
                   </div>
                   <?php } ?>
             <?php } else { ?>
-                  <div class='list-group w-auto mt-4'>
+                  <div class='list-group w-auto my-3 py-4'>
                         <a class='list-group-item list-group-item-action d-flex gap-3 py-3' aria-current='true'>
                               <img src='assets/img/like.gif' width='60' height='60' class='rounded-circle flex-shrink-0'>
                               <div class='d-flex gap-2 w-100 justify-content-center'>
@@ -633,7 +594,8 @@
                   </div>
             <?php } 
 
-      } else {
+      } 
+      else {
             echo "<div class='list-group w-auto my-3 py-4'>
             <a class='list-group-item list-group-item-action d-flex gap-3 py-3' aria-current='true'>
                   <img src='assets/img/warning.gif' width='60' height='60' class='rounded-circle flex-shrink-0'>

@@ -180,38 +180,6 @@
     }
     </script>
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('textarea').each(function() {
-            this.setAttribute('style', 'height:' + (this.scrollHeight) +
-                'px;overflow-y:hidden');
-        }).on('input', function() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-            console.log(this.scrollHeight);
-        });
-    });
-    </script>
-
-    <script>
-    (function() {
-        'use strict'
-        var forms = document.querySelectorAll('.needs-validation')
-
-        Array.prototype.slice.call(forms)
-            .forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-    </script>
-
     <!-- Vendor JS Files -->
     <script src="assets/vendor/purecounter/purecounter.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
@@ -222,6 +190,8 @@
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/valueValidation.js"></script>
+    <script src="../assets/js/textArea.js"></script>
 
 
 </body>

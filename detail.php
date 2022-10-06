@@ -67,7 +67,7 @@
                         </ul>
                         <div class="col-md-3 text-end">
                               <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                              <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                              <!-- <a href="loginform.php" class="btn btn-success">Admin Page</a> -->
                         </div>
                   </header>
             </div>
@@ -210,38 +210,7 @@
       <script src="assets/vendor/php-email-form/validate.js"></script>
 
       <script src="assets/js/main.js"></script>
-      <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-                  showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-                  showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                  let i;
-                  let slides = document.getElementsByClassName("mySlides");
-                  let dots = document.getElementsByClassName("demo");
-                  if (n > slides.length) {
-                        slideIndex = 1
-                  }
-                  if (n < 1) {
-                        slideIndex = slides.length
-                  }
-                  for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                  }
-                  for (i = 0; i < dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" active", "");
-                  }
-                  slides[slideIndex - 1].style.display = "block";
-                  dots[slideIndex - 1].className += " active";
-            }
-      </script>
+      <script src="assets/js/slideGallary.js"></script>
 </body>
 
 </html>

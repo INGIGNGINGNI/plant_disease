@@ -33,11 +33,11 @@
       <link rel="stylesheet" href="assets/css/custom.css">
 
       <style>
-            .list-group-item:last-child {
+            /* .list-group-item:last-child {
                   border-bottom-right-radius: inherit;
                   border-bottom-left-radius: inherit;
                   background-color: honeydew;
-            }
+            } */
             .text-result {
                   font-weight: bold;
                   color: #528d61;
@@ -61,7 +61,7 @@
                               </ul>
                               <div class="col-md-4 text-end">
                                     <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                                    <a href="loginform.php" class="btn btn-success">Admin Page</a>
+                                    <!-- <a href="loginform.php" class="btn btn-success">Admin Page</a> -->
                               </div>
                         </header>
                   </div>
@@ -120,14 +120,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
       </script>
 
-      <script>
-            $('textarea').each(function() {
-                  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden');
-            }).on('input', function() {
-                  this.style.height = 'auto';
-                  this.style.height = (this.scrollHeight) + 'px';
-            });
-      </script>
+      <script src="assets/js/textArea.js"></script>
 
 </body>
 
