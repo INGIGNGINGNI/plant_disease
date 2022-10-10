@@ -67,7 +67,7 @@
                         </ul>
                         <div class="col-md-3 text-end">
                               <a href="#footer" class="btn btn-outline-success me-2">ติดต่อเรา</a>
-                              <!-- <a href="loginform.php" class="btn btn-success">Admin Page</a> -->
+                              <a href="about.php" class="btn btn-outline-success">เกี่ยวกับเรา</a>
                         </div>
                   </header>
             </div>

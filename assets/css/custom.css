@@ -37,6 +37,19 @@ body {
       color: #528d61;
 }
 
+.text-about {
+      font-weight: bold;
+      color: #528d61;
+}
+
+.contact {
+      width: 1.5rem;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      margin-right: 1rem;
+}
+
+
 .bi.bi-search {
       color: white;
 }
